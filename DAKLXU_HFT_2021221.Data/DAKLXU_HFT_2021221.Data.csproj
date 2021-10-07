@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CarDb.mdf" />
+    <None Remove="CarDb_log.ldf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="CarDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CarDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DAKLXU_HFT_2021221.Models\DAKLXU_HFT_2021221.Models.csproj" />
+  </ItemGroup>
+
+</Project>
