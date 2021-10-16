@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAKLXU_HFT_2021221.Repository
 {
-    class BrandRepository : Repository<Brand>, IBrandRepository
+    public class BrandRepository : Repository<Brand>, IBrandRepository
     {
         public BrandRepository(DbContext ctx) : base(ctx) { }
 
@@ -17,6 +17,8 @@ namespace DAKLXU_HFT_2021221.Repository
         {
             var brand = GetOne(id);
             if (brand == null) throw new InvalidOperationException("Brand not found!");
+            brand.BrandName = newBrandName;
+            ctx.SaveChanges();
         }
 
         //Repository class 
