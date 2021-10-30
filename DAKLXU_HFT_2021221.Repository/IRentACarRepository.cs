@@ -11,5 +11,7 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         //update
         void ChangeRentName(int id, string newRentName);
+
+        void ChangeRating(int id, int newrating);
     }
 }

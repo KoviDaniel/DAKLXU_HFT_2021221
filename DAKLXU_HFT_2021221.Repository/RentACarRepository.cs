@@ -12,6 +12,14 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         public RentACarRepository(DbContext ctx) : base(ctx) { }
 
+        public void ChangeRating(int id, int newrating)
+        {
+            var rent = GetOne(id);
+            if (rent == null) throw new InvalidOperationException("Rent-a-car not found!");
+            rent.Rating = newrating;
+            ctx.SaveChanges();
+        }
+
         public void ChangeRentName(int id, string newRentName)
         {
             var rent = GetOne(id);

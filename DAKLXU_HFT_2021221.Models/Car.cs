@@ -35,7 +35,7 @@ namespace DAKLXU_HFT_2021221.Models
 
         public bool CarInsurance { get; set; }
 
-        public int RunnedKM { get; set; }
+        public int? RunnedKM { get; set; }
 
     }
 }
