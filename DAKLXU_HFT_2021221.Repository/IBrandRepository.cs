@@ -11,5 +11,6 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         //update
         void ChangeBrandName(int id, string newBrandName);
+        void ChangeCarsCollection(int id, ICollection<Car> newCars);
     }
 }

@@ -41,6 +41,11 @@ namespace DAKLXU_HFT_2021221.Logic
             brandRepo.ChangeBrandName(id, newBrandName);
         }
 
+        public void ChangeCarsCollection(int id, ICollection<Car> newCars) {
+            if (id < 1) throw new ArgumentException("Invalid ID");
+            if (newCars == null) throw new ArgumentNullException("Null cars collection");
+            brandRepo.ChangeCarsCollection(id, newCars);
+        }
         //NON-CRUD METHODS
 
     }

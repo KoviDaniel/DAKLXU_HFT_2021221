@@ -22,6 +22,11 @@ namespace DAKLXU_HFT_2021221.Logic
         void ChangeRentPrice(int id, int newRentPrice);
         void ChangeRunnedKM(int id, int newRunnedKM);
 
+        void ChangeBrandId(int id, int newId);
+        void ChangeRentACarId(int id, int newId);
+        void ChangeBrand(int id, Brand newBrand);
+        void ChangeRentACar(int id, RentACar newRentACar);
+
         //NON-CRUD METHODS
     }
 }

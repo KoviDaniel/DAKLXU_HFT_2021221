@@ -21,6 +21,14 @@ namespace DAKLXU_HFT_2021221.Repository
             ctx.SaveChanges();
         }
 
+        public void ChangeCarsCollection(int id, ICollection<Car> newCars)
+        {
+            var brand = GetOne(id);
+            if (brand == null) throw new InvalidOperationException("Brand not found!");
+            brand.Cars = newCars;
+            ctx.SaveChanges();
+        }
+
         //Repository class 
         public override Brand GetOne(int id)
         {

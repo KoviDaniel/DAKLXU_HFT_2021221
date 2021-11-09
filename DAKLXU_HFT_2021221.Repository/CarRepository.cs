@@ -59,5 +59,39 @@ namespace DAKLXU_HFT_2021221.Repository
             car.RunnedKM = newRunnedKM;
             ctx.SaveChanges();
         }
+
+        public void ChangeBrandId(int id, int newId)
+        {
+            var car = GetOne(id);
+            if (car == null) throw new InvalidOperationException("Car not found!");
+            car.BrandId = newId;
+            ctx.SaveChanges();
+        }
+
+        public void ChangeRentACarId(int id, int newId)
+        {
+            var car = GetOne(id);
+            if (car == null) throw new InvalidOperationException("Car not found!");
+            car.RentCarID = newId;
+            ctx.SaveChanges();
+        }
+
+        public void ChangeBrand(int id, Brand newBrand)
+        {
+            var car = GetOne(id);
+            if (car == null) throw new InvalidOperationException("Car not found!");
+            car.Brand = newBrand;
+            car.BrandId = newBrand.BrandID;
+            ctx.SaveChanges();
+        }
+
+        public void ChangeRentACar(int id, RentACar newRentACar)
+        {
+            var car = GetOne(id);
+            if (car == null) throw new InvalidOperationException("Car not found!");
+            car.RentACar = newRentACar;
+            car.RentCarID = newRentACar.RentCarID;
+            ctx.SaveChanges();
+        }
     }
 }
