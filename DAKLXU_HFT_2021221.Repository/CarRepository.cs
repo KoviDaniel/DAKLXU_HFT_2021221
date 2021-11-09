@@ -44,7 +44,7 @@ namespace DAKLXU_HFT_2021221.Repository
             ctx.SaveChanges();
         }
 
-        public void ChangeRenPrice(int id, int newRentPrice)
+        public void ChangeRentPrice(int id, int newRentPrice)
         {
             var car = GetOne(id);
             if (car == null) throw new InvalidOperationException("Car not found!");

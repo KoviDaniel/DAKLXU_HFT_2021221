@@ -11,7 +11,7 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         //Updates
         void ChangeModel(int id, string newModel);
-        void ChangeRenPrice(int id, int newRentPrice);
+        void ChangeRentPrice(int id, int newRentPrice);
         void ChangeColour(int id, string newColour);
         void ChangeCarInsurance(int id, bool newCarInsurance);
         void ChangeRunnedKM(int id, int newRunnedKM);

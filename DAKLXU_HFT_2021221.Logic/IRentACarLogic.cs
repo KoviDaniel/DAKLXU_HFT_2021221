@@ -1,0 +1,24 @@
+﻿using DAKLXU_HFT_2021221.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAKLXU_HFT_2021221.Logic
+{
+    public interface IRentACarLogic
+    {
+        //read, create, delete
+        RentACar GetOne(int id);
+        List<RentACar> GetAll();
+        void Insert(RentACar newRentACar);
+        void Remove(RentACar rentACar);
+
+        //update
+        void ChangeRating(int id, int newRating);
+        void ChangeRentName(int id, string newRentName);
+
+        //NON-CRUD METHODS
+    }
+}
