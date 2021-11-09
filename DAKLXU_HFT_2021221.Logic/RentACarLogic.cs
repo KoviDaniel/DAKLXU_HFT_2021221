@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAKLXU_HFT_2021221.Logic
 {
-    public class RentACarLogic
+    public class RentACarLogic : IRentACarLogic
     {
         #region CTOR & REPO (rentACarRepo)
         IRentACarRepository rentACarRepo;
