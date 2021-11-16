@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAKLXU_HFT_2021221.Logic
 {
-    public class CarLogic
+    public class CarLogic : ICarLogic
     {
         #region CTOR & REPO (carRepo, brandRepo, rentRepo)
         ICarRepository carRepo;
