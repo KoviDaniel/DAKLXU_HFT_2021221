@@ -36,7 +36,7 @@ namespace DAKLXU_HFT_2021221.Logic
         }
 
         //update
-        public void ChangeRating(int id, int newRating) {
+        /*public void ChangeRating(int id, int newRating) {
             if (id < 1) throw new ArgumentException("Invalid ID");
             if (newRating < 1 || newRating > 5) throw new ArgumentOutOfRangeException("The rating is not between 1 and 5");
             rentACarRepo.ChangeRating(id, newRating);
@@ -51,6 +51,12 @@ namespace DAKLXU_HFT_2021221.Logic
             if (id < 1) throw new ArgumentException("Invalid ID");
             if (newCars == null) throw new ArgumentNullException("Null cars collection");
             rentACarRepo.ChangeCarsCollection(id, newCars);
+        }*/
+
+        public void RentACarUpdate(int id, RentACar newRent) {
+            if (id < 1) throw new ArgumentException("Invalid ID");
+            if (newRent == null) throw new ArgumentNullException("Null Rent-A-Car");
+            rentACarRepo.RentACarUpdate(id, newRent);
         }
 
         //NON-CRUD METHODS

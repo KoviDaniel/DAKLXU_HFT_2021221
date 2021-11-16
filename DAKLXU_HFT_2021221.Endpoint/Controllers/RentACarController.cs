@@ -41,10 +41,11 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
             rl.Insert(value);
         }
 
-        // PUT api/<RentACarController>/5
+        // PUT /rentacar/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] RentACar value)
         {
+            rl.RentACarUpdate(id, value);
         }
 
         // DELETE /rentacar/5

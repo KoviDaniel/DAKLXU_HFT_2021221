@@ -12,7 +12,7 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         public RentACarRepository(DbContext ctx) : base(ctx) { }
 
-        public void ChangeCarsCollection(int id, ICollection<Car> newCars)
+        /*public void ChangeCarsCollection(int id, ICollection<Car> newCars)
         {
             var rentACar = GetOne(id);
             if (rentACar == null) throw new InvalidOperationException("Rent-a-car not found!");
@@ -33,6 +33,14 @@ namespace DAKLXU_HFT_2021221.Repository
             var rent = GetOne(id);
             if (rent == null) throw new InvalidOperationException("Rent-a-car not found!");
             rent.RentName = newRentName;
+            ctx.SaveChanges();
+        }*/
+
+        public void RentACarUpdate(int id, RentACar newRent) {
+            var rentToUpdate = GetOne(id);
+            rentToUpdate.RentName = newRent.RentName;
+            rentToUpdate.Rating = newRent.Rating;
+            rentToUpdate.Cars = newRent.Cars;
             ctx.SaveChanges();
         }
 
