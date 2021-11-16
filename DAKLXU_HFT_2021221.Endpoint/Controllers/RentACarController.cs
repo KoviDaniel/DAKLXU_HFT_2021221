@@ -38,18 +38,20 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         [HttpPost]
         public void Post([FromBody] RentACar value)
         {
+            rl.Insert(value);
         }
 
         // PUT api/<RentACarController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] RentACar value)
         {
         }
 
-        // DELETE api/<RentACarController>/5
+        // DELETE /rentacar/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            rl.Remove(rl.GetOne(id));
         }
     }
 }
