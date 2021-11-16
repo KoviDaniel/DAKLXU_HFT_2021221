@@ -10,7 +10,7 @@ namespace DAKLXU_HFT_2021221.Repository
     public interface ICarRepository : IRepository<Car>
     {
         //Updates
-        void ChangeModel(int id, string newModel);
+        /*void ChangeModel(int id, string newModel);
         void ChangeRentPrice(int id, int newRentPrice);
         void ChangeColour(int id, string newColour);
         void ChangeCarInsurance(int id, bool newCarInsurance);
@@ -20,6 +20,8 @@ namespace DAKLXU_HFT_2021221.Repository
         void ChangeBrandId(int id, int newId);
         void ChangeRentACarId(int id, int newId);
         void ChangeBrand(int id, Brand newBrand);
-        void ChangeRentACar(int id, RentACar newRentACar);
+        void ChangeRentACar(int id, RentACar newRentACar);*/
+
+        void CarUpdate(int id, Car newCar);
     }
 }

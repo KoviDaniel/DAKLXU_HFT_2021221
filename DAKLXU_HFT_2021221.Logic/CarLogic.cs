@@ -41,49 +41,54 @@ namespace DAKLXU_HFT_2021221.Logic
         }
 
         //update
-        public void ChangeCarInsurance(int id, bool newCarInsurance) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            carRepo.ChangeCarInsurance(id, newCarInsurance);
-        }
-        public void ChangeColour(int id, string newColour) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newColour == null) throw new ArgumentNullException("new colour can't be null");
-            carRepo.ChangeColour(id, newColour);
-        }
-        public void ChangeModel(int id, string newModel) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newModel == null) throw new ArgumentNullException("new model can't be null");
-            carRepo.ChangeModel(id, newModel);
-        }
-        public void ChangeRentPrice(int id, int newRentPrice) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newRentPrice < 0) throw new ArgumentException("Rent price can't be less then zero");
-            carRepo.ChangeRentPrice(id, newRentPrice);
-        }
-        public void ChangeRunnedKM(int id, int newRunnedKM) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newRunnedKM < 0) throw new ArgumentException("Runned kilometer can't be less then zero");
-            carRepo.ChangeRunnedKM(id, newRunnedKM);
-        }
+        /* public void ChangeCarInsurance(int id, bool newCarInsurance) {
+             if (id < 1) throw new ArgumentException("Invalid ID");
+             carRepo.ChangeCarInsurance(id, newCarInsurance);
+         }
+         public void ChangeColour(int id, string newColour) {
+             if (id < 1) throw new ArgumentException("Invalid ID");
+             if (newColour == null) throw new ArgumentNullException("new colour can't be null");
+             carRepo.ChangeColour(id, newColour);
+         }
+         public void ChangeModel(int id, string newModel) {
+             if (id < 1) throw new ArgumentException("Invalid ID");
+             if (newModel == null) throw new ArgumentNullException("new model can't be null");
+             carRepo.ChangeModel(id, newModel);
+         }
+         public void ChangeRentPrice(int id, int newRentPrice) {
+             if (id < 1) throw new ArgumentException("Invalid ID");
+             if (newRentPrice < 0) throw new ArgumentException("Rent price can't be less then zero");
+             carRepo.ChangeRentPrice(id, newRentPrice);
+         }
+         public void ChangeRunnedKM(int id, int newRunnedKM) {
+             if (id < 1) throw new ArgumentException("Invalid ID");
+             if (newRunnedKM < 0) throw new ArgumentException("Runned kilometer can't be less then zero");
+             carRepo.ChangeRunnedKM(id, newRunnedKM);
+         }
 
 
-        public void ChangeBrandId(int id, int newId) {
-            if (id < 1 || newId < 1) throw new ArgumentException("Invalid ID");
-            carRepo.ChangeBrand(id, brandRepo.GetOne(newId));
-        }
-        public void ChangeRentACarId(int id, int newId) {
-            if (id < 1 || newId < 1) throw new ArgumentException("Invalid ID");
-            carRepo.ChangeRentACar(id, rentRepo.GetOne(newId));
-        }
-        public void ChangeBrand(int id, Brand newBrand) {
+         public void ChangeBrandId(int id, int newId) {
+             if (id < 1 || newId < 1) throw new ArgumentException("Invalid ID");
+             carRepo.ChangeBrand(id, brandRepo.GetOne(newId));
+         }
+         public void ChangeRentACarId(int id, int newId) {
+             if (id < 1 || newId < 1) throw new ArgumentException("Invalid ID");
+             carRepo.ChangeRentACar(id, rentRepo.GetOne(newId));
+         }
+         public void ChangeBrand(int id, Brand newBrand) {
+             if (id < 1) throw new ArgumentException("Invalid ID");
+             if (newBrand == null) throw new ArgumentNullException("Brand is null");
+             carRepo.ChangeBrand(id, newBrand);
+         }
+         public void ChangeRentACar(int id, RentACar newRentACar) {
+             if (id < 1) throw new ArgumentException("Invalid ID");
+             if (newRentACar == null) throw new ArgumentNullException("Rent-a-car is null");
+             carRepo.ChangeRentACar(id, newRentACar);
+         }*/
+        public void CarUpdate(int id, Car newCar) {
             if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newBrand == null) throw new ArgumentNullException("Brand is null");
-            carRepo.ChangeBrand(id, newBrand);
-        }
-        public void ChangeRentACar(int id, RentACar newRentACar) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newRentACar == null) throw new ArgumentNullException("Rent-a-car is null");
-            carRepo.ChangeRentACar(id, newRentACar);
+            if (newCar == null) throw new ArgumentNullException("Null car");
+            carRepo.CarUpdate(id, newCar);
         }
 
         //NON-CRUD METHODS

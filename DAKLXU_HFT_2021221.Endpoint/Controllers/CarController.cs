@@ -41,11 +41,11 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
             cl.Insert(value);
         }
 
-        // PUT api/<CarController>/5
+        // PUT /car/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Car value)
         {
-            // UPDATE METÓDUS ÚJRAGONDOLÁS
+            cl.CarUpdate(id, value);
         }
 
         // DELETE /car/5
