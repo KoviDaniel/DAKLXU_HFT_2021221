@@ -54,5 +54,23 @@ namespace DAKLXU_HFT_2021221.Logic
         }
         //NON-CRUD METHODS
 
+        public IEnumerable<Car> MostValuableCar(int id) {
+            var car = from brand in brandRepo.GetAll()
+                      where brand.BrandID == id
+                      select brand.Cars.Max(c=>c.RentPrice);
+            return (IEnumerable<Car>)car;
+        }
+
+        public IEnumerable<Car> CarsOrderbyKM(int id) {
+            var cars = from car in brandRepo.GetOne(id).Cars
+                       orderby car.RunnedKM descending
+                       select car;
+            return cars;
+        }
+
+        public IEnumerable<RentACar> MostValuableCarOwner(int id) {
+            var owner = MostValuableCar(id).First().RentACar;
+            return (IEnumerable<RentACar>)owner;
+        }
     }
 }

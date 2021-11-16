@@ -20,13 +20,13 @@ namespace DAKLXU_HFT_2021221.Endpoint
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            /*services.AddTransient<ICarLogic, CarLogic>();
-            /*services.AddTransient<IBrandLogic, BrandLogic>();
+            services.AddTransient<ICarLogic, CarLogic>();
+            services.AddTransient<IBrandLogic, BrandLogic>();
             services.AddTransient<IRentACarLogic, RentACarLogic>();
             services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<IRentACarRepository, RentACarRepository>();
-            services.AddTransient<XYZDbContext, XYZDbContext>();*/
+            services.AddTransient<XYZDbContext, XYZDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

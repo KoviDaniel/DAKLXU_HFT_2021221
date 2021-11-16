@@ -23,5 +23,7 @@ namespace DAKLXU_HFT_2021221.Logic
         void RentACarUpdate(int id, RentACar newRent);
 
         //NON-CRUD METHODS
+        IEnumerable<Car> MostRunnedKM(int id);
+        IEnumerable<KeyValuePair<string, double>> GroupByModels(int id); 
     }
 }

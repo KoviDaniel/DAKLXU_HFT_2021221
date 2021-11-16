@@ -60,5 +60,18 @@ namespace DAKLXU_HFT_2021221.Logic
         }
 
         //NON-CRUD METHODS
+        public IEnumerable<Car> MostRunnedKM(int id) {
+            var car = from rent in rentACarRepo.GetAll()
+                      where rent.RentCarID == id
+                      select rent.Cars.Max(x => x.RunnedKM);
+            return (IEnumerable<Car>)car;
+        }
+
+        public IEnumerable<KeyValuePair<string, double>> GroupByModels(int id) {
+            return from x in rentACarRepo.GetOne(id).Cars
+                   group x by x.Brand.BrandName into grp
+                   select new KeyValuePair<string, double>
+                   (grp.Key, grp.Sum(e => e.CarID));
+        }
     }
 }
