@@ -41,11 +41,11 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
             bl.Insert(value);
         }
 
-        // PUT api/<BrandController>/5
+        // PUT /brand/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Brand value)
         {
-            //UPDATE RETHINK REQUIRED
+            bl.BrandUpdate(id, value);
         }
 
         // DELETE /brand/5

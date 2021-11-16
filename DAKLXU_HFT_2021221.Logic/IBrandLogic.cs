@@ -16,8 +16,11 @@ namespace DAKLXU_HFT_2021221.Logic
         void Remove(Brand brand);
 
         //update
-        void ChangeBrandName(int id, string newBrandName);
-        void ChangeCarsCollection(int id, ICollection<Car> newCars);
+        /*void ChangeBrandName(int id, string newBrandName);
+        void ChangeCarsCollection(int id, ICollection<Car> newCars);*/
+
+        void BrandUpdate(int id, Brand newBrand);
+
         //NON-CRUD METHODS
     }
 }

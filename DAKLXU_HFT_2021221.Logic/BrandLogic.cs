@@ -35,7 +35,7 @@ namespace DAKLXU_HFT_2021221.Logic
             brandRepo.Remove(brand);
         }
         //update
-        public void ChangeBrandName(int id, string newBrandName) { 
+        /*public void ChangeBrandName(int id, string newBrandName) { 
             if(id < 1) throw new ArgumentException("Invalid ID");
             if (newBrandName == null) throw new ArgumentNullException("new brand name can't be null");
             brandRepo.ChangeBrandName(id, newBrandName);
@@ -45,6 +45,12 @@ namespace DAKLXU_HFT_2021221.Logic
             if (id < 1) throw new ArgumentException("Invalid ID");
             if (newCars == null) throw new ArgumentNullException("Null cars collection");
             brandRepo.ChangeCarsCollection(id, newCars);
+        }*/
+
+        public void BrandUpdate(int id, Brand newBrand) {
+            if (id < 1) throw new ArgumentException("Invalid ID");
+            if (newBrand == null) throw new ArgumentNullException("Null brand");
+            brandRepo.BrandUpdate(id, newBrand);
         }
         //NON-CRUD METHODS
 
