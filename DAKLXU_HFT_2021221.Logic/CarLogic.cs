@@ -33,6 +33,11 @@ namespace DAKLXU_HFT_2021221.Logic
 
         public void Insert(Car newCar) {
             if (newCar == null) throw new ArgumentNullException("Null car (INSERT)");
+            if (newCar.Model == null) throw new ArgumentNullException("Invalid model name");
+            if (newCar.RentPrice < 0) throw new ArgumentOutOfRangeException("Rent price can't be less then null");
+            if (newCar.Colour == null) throw new ArgumentNullException("Colour can't be null");
+            if (newCar.RunnedKM < 0) throw new ArgumentOutOfRangeException("Runned KM can't be less then null");
+            if (newCar.RunnedKM == null) newCar.RunnedKM = 0;
             carRepo.Insert(newCar);
         }
         public void Remove(Car car) {
@@ -92,5 +97,6 @@ namespace DAKLXU_HFT_2021221.Logic
         }
 
         //NON-CRUD METHODS
+        //no non-crud method
     }
 }
