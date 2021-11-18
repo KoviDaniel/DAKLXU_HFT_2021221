@@ -18,6 +18,7 @@ namespace DAKLXU_HFT_2021221.Models
         [Required]
         public string RentName { get; set; }
 
+        [Range(0, 5)]
         public int? Rating { get; set; }
 
         [NotMapped]

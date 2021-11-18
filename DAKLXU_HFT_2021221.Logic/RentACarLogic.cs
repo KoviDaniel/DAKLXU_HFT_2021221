@@ -28,6 +28,9 @@ namespace DAKLXU_HFT_2021221.Logic
         }
         public void Insert(RentACar newRentACar) {
             if (newRentACar == null) throw new ArgumentNullException("Null rent-a-car");
+            if (newRentACar.RentName == null) throw new ArgumentNullException("rent name can't be null");
+            if (newRentACar.Rating == null) throw new ArgumentNullException("Rating can't be null");
+            if (newRentACar.Rating < 0 && newRentACar.Rating > 5) throw new ArgumentOutOfRangeException("Rating must be between 0 and 5");
             rentACarRepo.Insert(newRentACar);
         }
         public void Remove(RentACar rentACar) {

@@ -28,6 +28,7 @@ namespace DAKLXU_HFT_2021221.Logic
         }
         public void Insert(Brand newBrand) {
             if (newBrand == null) throw new ArgumentNullException("Null brand (INSERT)");
+            if (newBrand.BrandName == null) throw new ArgumentNullException("Brand name can't be null");
             brandRepo.Insert(newBrand);
         }
         public void Remove(Brand brand) {
