@@ -25,6 +25,6 @@ namespace DAKLXU_HFT_2021221.Logic
 
         IEnumerable<Car> CarOrderByPrice(int id);
         IEnumerable<Car> CarsOrderbyKM(int id);
-        IEnumerable<RentACar> MostValuableCarOwner(int id);
+        IEnumerable<RentACar>/*RentACar*/ MostValuableCarOwner(int id);
     }
 }

@@ -39,23 +39,7 @@ namespace DAKLXU_HFT_2021221.Logic
             rentACarRepo.Remove(rentACar);
         }
 
-        //update
-        /*public void ChangeRating(int id, int newRating) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newRating < 1 || newRating > 5) throw new ArgumentOutOfRangeException("The rating is not between 1 and 5");
-            rentACarRepo.ChangeRating(id, newRating);
-        }
-        public void ChangeRentName(int id, string newRentName) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newRentName == null) throw new ArgumentNullException("new rent-a-car name can't be null");
-            rentACarRepo.ChangeRentName(id, newRentName);
-        }
-        public void ChangeCarsCollection(int id, ICollection<Car> newCars)
-        {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newCars == null) throw new ArgumentNullException("Null cars collection");
-            rentACarRepo.ChangeCarsCollection(id, newCars);
-        }*/
+       
 
         public void RentACarUpdate(int id, RentACar newRent) {
             if (id < 1) throw new ArgumentException("Invalid ID");
@@ -64,6 +48,12 @@ namespace DAKLXU_HFT_2021221.Logic
         }
 
         //NON-CRUD METHODS
+
+        /// <summary>
+        /// Return with a collection of cars ordered by runned km from the choosen Rent-A-Car 
+        /// </summary>
+        /// <param name="id">Rent-A-Car ID</param>
+        /// <returns>Collection of cars</returns>
         public IEnumerable<Car> MostRunnedKM(int id) {
             var car = from rent in rentACarRepo.GetOne(id).Cars
                       orderby rent.RunnedKM

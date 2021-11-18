@@ -36,18 +36,7 @@ namespace DAKLXU_HFT_2021221.Logic
             if (brand == null) throw new ArgumentNullException("Null brand (REMOVE)");
             brandRepo.Remove(brand);
         }
-        //update
-        /*public void ChangeBrandName(int id, string newBrandName) { 
-            if(id < 1) throw new ArgumentException("Invalid ID");
-            if (newBrandName == null) throw new ArgumentNullException("new brand name can't be null");
-            brandRepo.ChangeBrandName(id, newBrandName);
-        }
-
-        public void ChangeCarsCollection(int id, ICollection<Car> newCars) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
-            if (newCars == null) throw new ArgumentNullException("Null cars collection");
-            brandRepo.ChangeCarsCollection(id, newCars);
-        }*/
+        
 
         public void BrandUpdate(int id, Brand newBrand) {
             if (id < 1) throw new ArgumentException("Invalid ID");
@@ -56,6 +45,11 @@ namespace DAKLXU_HFT_2021221.Logic
         }
         //NON-CRUD METHODS
 
+        /// <summary>
+        /// Cars from the choosen brand ordered by price descending
+        /// </summary>
+        /// <param name="id">Brand ID</param>
+        /// <returns>Collection of cars</returns>
         public IEnumerable<Car> CarOrderByPrice(int id) {
             var cars = from car in brandRepo.GetOne(id).Cars
                        orderby car.RentPrice descending
@@ -64,6 +58,11 @@ namespace DAKLXU_HFT_2021221.Logic
             return cars;
         }
 
+        /// <summary>
+        /// Cars from the choosen brand ordered by runned km descending
+        /// </summary>
+        /// <param name="id">Brand ID</param>
+        /// <returns>Collection of cars</returns>
         public IEnumerable<Car> CarsOrderbyKM(int id) {
             var cars = from car in brandRepo.GetOne(id).Cars
                        orderby car.RunnedKM descending
@@ -71,11 +70,17 @@ namespace DAKLXU_HFT_2021221.Logic
             return cars;
         }
 
+        /// <summary>
+        /// Returns with the most valuable car owner from the choosen brand
+        /// </summary>
+        /// <param name="id">Brand ID</param>
+        /// <returns>Car owner</returns>
         public IEnumerable<RentACar> MostValuableCarOwner(int id) {
 
-            var owners = from car in brandRepo.GetOne(id).Cars
-                         orderby car.RentPrice descending
-                         select car.RentACar;
+            var owners = from cars in brandRepo.GetOne(id).Cars
+                         let x = brandRepo.GetOne(id).Cars.Max(c => c.RentPrice)
+                         where cars.RentPrice == x
+                         select cars.RentACar;
             return owners;
         }
     }
