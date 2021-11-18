@@ -37,8 +37,8 @@ namespace DAKLXU_HFT_2021221.Data
             Brand fiat = new Brand() { BrandID = 5, BrandName = "Fiat"};
             Brand tesla = new Brand() { BrandID = 6, BrandName = "Tesla"};
 
-            RentACar rent1 = new RentACar() { RentCarID = 1, RentName = "R3nt-4-C4r"};
-            RentACar rent2 = new RentACar() { RentCarID = 2, RentName = "Józsi bácsi autókölcsönzője"};
+            RentACar rent1 = new RentACar() { RentCarID = 1, RentName = "R3nt-4-C4r", Rating = 4};
+            RentACar rent2 = new RentACar() { RentCarID = 2, RentName = "Józsi bácsi autókölcsönzője", Rating = 2};
 
             Car vw1 = new Car()
             {

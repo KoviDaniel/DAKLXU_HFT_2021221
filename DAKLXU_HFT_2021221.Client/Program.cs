@@ -1,4 +1,8 @@
-﻿using System;
+﻿
+using DAKLXU_HFT_2021221.Models;
+
+using System;
+
 
 namespace DAKLXU_HFT_2021221.Client
 {
@@ -6,7 +10,6 @@ namespace DAKLXU_HFT_2021221.Client
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }

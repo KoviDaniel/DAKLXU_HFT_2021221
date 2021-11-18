@@ -28,7 +28,8 @@ namespace DAKLXU_HFT_2021221.Logic
         }
         public void Insert(RentACar newRentACar) {
             if (newRentACar == null) throw new ArgumentNullException("Null rent-a-car");
-            if (newRentACar.RentName == null) throw new ArgumentNullException("rent name can't be null");
+            if (newRentACar.RentName == null) throw new ArgumentNullException("Rent name can't be null");
+            if (newRentACar.RentName == "") throw new ArgumentException("Rent name can't be empty string");
             if (newRentACar.Rating == null) throw new ArgumentNullException("Rating can't be null");
             if (newRentACar.Rating < 0 && newRentACar.Rating > 5) throw new ArgumentOutOfRangeException("Rating must be between 0 and 5");
             rentACarRepo.Insert(newRentACar);
@@ -64,17 +65,17 @@ namespace DAKLXU_HFT_2021221.Logic
 
         //NON-CRUD METHODS
         public IEnumerable<Car> MostRunnedKM(int id) {
-            var car = from rent in rentACarRepo.GetAll()
-                      where rent.RentCarID == id
-                      select rent.Cars.Max(x => x.RunnedKM);
-            return (IEnumerable<Car>)car;
+            var car = from rent in rentACarRepo.GetOne(id).Cars
+                      orderby rent.RunnedKM
+                      select rent;
+            return car;
         }
 
         public IEnumerable<KeyValuePair<string, double>> GroupByModels(int id) {
             return from x in rentACarRepo.GetOne(id).Cars
                    group x by x.Brand.BrandName into grp
                    select new KeyValuePair<string, double>
-                   (grp.Key, grp.Sum(e => e.CarID));
+                   (grp.Key, grp.Sum(e => e.RentPrice));
         }
     }
 }

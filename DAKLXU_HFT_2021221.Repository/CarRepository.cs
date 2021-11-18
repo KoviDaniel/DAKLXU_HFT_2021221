@@ -15,10 +15,10 @@ namespace DAKLXU_HFT_2021221.Repository
         public void CarUpdate(int id, Car newCar)
         {
             var car = GetOne(id);
-            car.BrandId = newCar.BrandId;
-            car.Brand = newCar.Brand;
-            car.RentCarID = newCar.RentCarID;
-            car.RentACar = newCar.RentACar;
+            //car.BrandId = newCar.BrandId;
+           // car.Brand = newCar.Brand;
+            //car.RentCarID = newCar.RentCarID;
+           // car.RentACar = newCar.RentACar;
             car.Model = newCar.Model;
             car.RentPrice = newCar.RentPrice;
             car.Colour = newCar.Colour;

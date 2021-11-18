@@ -23,7 +23,7 @@ namespace DAKLXU_HFT_2021221.Logic
 
         //NON-CRUD METHODS
 
-        IEnumerable<Car> MostValuableCar(int id);
+        IEnumerable<Car> CarOrderByPrice(int id);
         IEnumerable<Car> CarsOrderbyKM(int id);
         IEnumerable<RentACar> MostValuableCarOwner(int id);
     }

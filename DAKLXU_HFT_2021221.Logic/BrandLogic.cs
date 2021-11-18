@@ -29,6 +29,7 @@ namespace DAKLXU_HFT_2021221.Logic
         public void Insert(Brand newBrand) {
             if (newBrand == null) throw new ArgumentNullException("Null brand (INSERT)");
             if (newBrand.BrandName == null) throw new ArgumentNullException("Brand name can't be null");
+            if (newBrand.BrandName == "") throw new ArgumentException("Brand name can't be empty string");
             brandRepo.Insert(newBrand);
         }
         public void Remove(Brand brand) {
@@ -55,11 +56,12 @@ namespace DAKLXU_HFT_2021221.Logic
         }
         //NON-CRUD METHODS
 
-        public IEnumerable<Car> MostValuableCar(int id) {
-            var car = from brand in brandRepo.GetAll()
-                      where brand.BrandID == id
-                      select brand.Cars.Max(c=>c.RentPrice);
-            return (IEnumerable<Car>)car;
+        public IEnumerable<Car> CarOrderByPrice(int id) {
+            var cars = from car in brandRepo.GetOne(id).Cars
+                       orderby car.RentPrice descending
+                       select car;
+               
+            return cars;
         }
 
         public IEnumerable<Car> CarsOrderbyKM(int id) {
@@ -70,8 +72,11 @@ namespace DAKLXU_HFT_2021221.Logic
         }
 
         public IEnumerable<RentACar> MostValuableCarOwner(int id) {
-            var owner = MostValuableCar(id).First().RentACar;
-            return (IEnumerable<RentACar>)owner;
+
+            var owners = from car in brandRepo.GetOne(id).Cars
+                         orderby car.RentPrice descending
+                         select car.RentACar;
+            return owners;
         }
     }
 }
