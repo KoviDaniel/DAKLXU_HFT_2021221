@@ -12,13 +12,13 @@ namespace DAKLXU_HFT_2021221.Logic
     {
         #region CTOR & REPO (carRepo, brandRepo, rentRepo)
         ICarRepository carRepo;
-        IBrandRepository brandRepo;
-        IRentACarRepository rentRepo;
-        public CarLogic(ICarRepository carRepo, IBrandRepository brandRepo,IRentACarRepository rentRepo)
+        /*IBrandRepository brandRepo;
+        IRentACarRepository rentRepo;*/
+        public CarLogic(ICarRepository carRepo/*, IBrandRepository brandRepo,IRentACarRepository rentRepo*/)
         {
             this.carRepo = carRepo;
-            this.brandRepo = brandRepo;
-            this.rentRepo = rentRepo;
+            /*this.brandRepo = brandRepo;
+            this.rentRepo = rentRepo;*/
         }
         #endregion
 
