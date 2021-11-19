@@ -11,13 +11,19 @@ using System.Threading.Tasks;
 namespace DAKLXU_HFT_2021221.Test
 {
     [TestFixture]
-    class BrandTester
+    class Tester
     {
+        CarLogic cl;
         BrandLogic bl;
+        RentACarLogic rl;
 
         [SetUp]
         public void Init() {
+            var mockCarRepo = new Mock<ICarRepository>();
             var mockBrandRepo = new Mock<IBrandRepository>();
+            var mockRentRepo = new Mock<IRentACarRepository>();
+
+            
         }
     }
 }
