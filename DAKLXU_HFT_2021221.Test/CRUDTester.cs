@@ -130,6 +130,85 @@ namespace DAKLXU_HFT_2021221.Test
             if (name == "") Assert.Throws(typeof(ArgumentException), () => rl.Insert(r));
             if(rating <0 && rating >5) Assert.Throws(typeof(ArgumentOutOfRangeException), () => rl.Insert(r));
         }
+
+
+        //READ tester
+        [TestCase(-1)]
+        public void CarReadOneExceptionTest(int id) {
+
+            if (id < 1) { Assert.Throws(typeof(ArgumentException), () => cl.GetOne(id)); }
+        }
+        [Test]
+        public void CarReadAllTest() {
+            Brand fakeBrand = new Brand();
+            fakeBrand.BrandID = 1;
+            fakeBrand.BrandName = "Volkswagen";
+
+
+            RentACar fakeRent = new RentACar();
+            fakeRent.RentCarID = 1;
+            fakeRent.RentName = "Car rent";
+            fakeRent.Rating = 5;
+
+
+            var expecteds = new List<Car>()
+            {
+                new Car(){
+                    CarID =1,
+                    Model = "T5",
+                    BrandId = 1,
+                    Brand = fakeBrand,
+                    RentCarID = 1,
+                    RentACar = fakeRent,
+                    RentPrice = 12300,
+                    Colour = "Darkblue",
+                    CarInsurance = true,
+                    RunnedKM = 24500
+                },
+                new Car(){
+                    CarID =2,
+                    Model = "Passat",
+                    BrandId = 1,
+                    Brand = fakeBrand,
+                    RentCarID = 1,
+                    RentACar = fakeRent,
+                    RentPrice = 7000,
+                    Colour = "Gray",
+                    CarInsurance = false,
+                    RunnedKM = 134000
+                }
+            };
+
+            List<string> expected = new List<string>();
+            foreach (var item in expecteds)
+            {
+                expected.Add(item.ToString());
+            }
+
+            List<string> result = new List<string>();
+            foreach (var item in cl.GetAll())
+            {
+                result.Add(item.ToString());
+            }
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        // UPDATE tester
+
+        [TestCase(-10, "1")]
+        [TestCase(1, null)]
+        public void CarUpdateExceptionTest(int id, string idx) {
+            if (idx == null) Assert.Throws(typeof(ArgumentNullException), () => cl.CarUpdate(id, null));
+            if (id < 0) Assert.Throws(typeof(ArgumentException), ()=>cl.CarUpdate(id, null));
+
+        }
+
+        //DELETE tester
+        [Test]
+        public void CarDeleteExceptionTest() {
+            Assert.Throws(typeof(ArgumentNullException), ()=>cl.Remove(null));
+        }
     }
     
 }

@@ -40,5 +40,10 @@ namespace DAKLXU_HFT_2021221.Models
 
         public int? RunnedKM { get; set; }
 
+        public override string ToString()
+        {
+            return $"{this.Model}, {this.RentPrice}, {Colour}, {CarInsurance}, {RunnedKM}";
+        }
+
     }
 }
