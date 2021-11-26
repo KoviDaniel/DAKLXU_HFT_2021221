@@ -24,6 +24,8 @@ namespace DAKLXU_HFT_2021221.Test
             fakeRent.RentName = "Rent";
             fakeRent.Rating = 3;
 
+            bl = new BrandLogic(mockBrandRepo.Object);
+
             var brands = new List<Brand>() { 
                 new Brand(){ 
                     BrandID = 1,
@@ -57,7 +59,7 @@ namespace DAKLXU_HFT_2021221.Test
                 },
                 new Brand(){ 
                     BrandID = 2,
-                    BrandName = "Citroen",
+                    BrandName = "Peugeot",
                     Cars = new List<Car>(){ 
                         new Car(){
                             CarID = 3,
@@ -88,7 +90,7 @@ namespace DAKLXU_HFT_2021221.Test
             }.AsQueryable();
 
             mockBrandRepo.Setup((t) => t.GetAll()).Returns(brands);
-            bl = new BrandLogic(mockBrandRepo.Object);
+           // this.bl = new BrandLogic(mockBrandRepo.Object);
         }
 
         //NON-CRUDS
@@ -129,6 +131,8 @@ namespace DAKLXU_HFT_2021221.Test
             List<string> result = new List<string>();
             List<string> expected = new List<string>();
 
+           
+
             foreach (var item in bl.CarOrderByPrice(1))
             {
                 result.Add(item.ToString());
@@ -148,7 +152,7 @@ namespace DAKLXU_HFT_2021221.Test
                 RentName= "Rent",
                 Rating = 3
             };
-            var result = (RentACar)bl.MostValuableCarOwner(1);
+            var result = bl.MostValuableCarOwner(1);
             Assert.That(result, Is.EqualTo(expected));
         }
     }
