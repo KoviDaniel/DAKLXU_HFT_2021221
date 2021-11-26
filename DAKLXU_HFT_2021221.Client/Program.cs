@@ -15,7 +15,7 @@ namespace DAKLXU_HFT_2021221.Client
             RestService rest = new RestService("http://localhost:17167");
             bool exit = false;
 
-            while (exit!=false)
+            while (exit!=true)
             {
                 int answer = MainMenu(ref exit);
 
@@ -46,6 +46,7 @@ namespace DAKLXU_HFT_2021221.Client
         }
 
         static int MainMenu(ref bool exit) {
+            Console.Clear();
             Console.WriteLine("Welcome!\nPick an option from below");
             Console.WriteLine("---------------------------");
             Console.WriteLine("-  1  :  CAR CRUD         -");
@@ -60,6 +61,7 @@ namespace DAKLXU_HFT_2021221.Client
         }
 
         static int CRUDMenu(string name) {
+            Console.Clear();
             Console.WriteLine("Pick an option from below:");
             Console.WriteLine("---------------------------");
             Console.WriteLine($"-  1  :  {name} CREATE   -");
@@ -72,6 +74,7 @@ namespace DAKLXU_HFT_2021221.Client
         }
 
         static void NonCRUDMenu(RestService rest) {
+            Console.Clear();
             Console.WriteLine("Pick an option from below:");
             Console.WriteLine("----------------------------------");
             Console.WriteLine($"-  1  :  CarOrderByPrice        -");
@@ -151,6 +154,7 @@ namespace DAKLXU_HFT_2021221.Client
                     car.RentCarID = rID;
 
                     rest.Post<Car>(car, "car");
+                    Console.WriteLine("CAR INSERTED TO THE DATABASE");
                     break;
                 case 2:
                     rest.Get<Car>("car");
@@ -196,6 +200,7 @@ namespace DAKLXU_HFT_2021221.Client
                     updateCar.RentCarID = rIDU;
 
                     rest.Put<Car>(updateCar, $"car/{updateID}");
+                    Console.WriteLine("CAR HAS BEEN UPDATED");
                     break;
                 case 5:
                     Console.WriteLine("Wich car do you want to delete? Pick an ID");
