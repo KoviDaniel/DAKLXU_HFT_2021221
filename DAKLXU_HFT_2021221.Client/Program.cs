@@ -35,7 +35,7 @@ namespace DAKLXU_HFT_2021221.Client
                         break;
                     case 5:
                         Console.Clear();
-                        Console.WriteLine("Good bye");
+                        Console.WriteLine("Goodbye");
                         Console.ReadLine();
                         break;
                     default:
@@ -97,7 +97,7 @@ namespace DAKLXU_HFT_2021221.Client
                     List<Car> carByPrice=rest.Get<Car>($"stat/carorderbyprice/{i}");
                     foreach (var j in carByPrice)
                     {
-                        Console.WriteLine($"CAR\n********************\nID : {j.CarID},\nModel : {j.Model},\nBrand ID : {j.BrandId},\nRent-a-car ID : {j.RentCarID},\nRent price : {j.RentPrice},\n" +
+                        Console.WriteLine($"********************\nID : {j.CarID},\nModel : {j.Model},\nBrand ID : {j.BrandId},\nRent-a-car ID : {j.RentCarID},\nRent price : {j.RentPrice},\n" +
                         $"Colour : {j.Colour},\nInsurance : {j.CarInsurance},\nRunned kilometer : {j.RunnedKM}\n*********************");
                     }
                     Console.WriteLine("Press ENTER to countinue...");
@@ -110,7 +110,7 @@ namespace DAKLXU_HFT_2021221.Client
                     List<Car> carByKM=rest.Get<Car>($"stat/carsorderbykm/{i2}");
                     foreach (var j in carByKM)
                     {
-                        Console.WriteLine($"CAR\n********************\nID : {j.CarID},\nModel : {j.Model},\nBrand ID : {j.BrandId},\nRent-a-car ID : {j.RentCarID},\nRent price : {j.RentPrice},\n" +
+                        Console.WriteLine($"********************\nID : {j.CarID},\nModel : {j.Model},\nBrand ID : {j.BrandId},\nRent-a-car ID : {j.RentCarID},\nRent price : {j.RentPrice},\n" +
                         $"Colour : {j.Colour},\nInsurance : {j.CarInsurance},\nRunned kilometer : {j.RunnedKM}\n*********************");
                     }
                     Console.WriteLine("Press ENTER to countinue...");
@@ -144,7 +144,7 @@ namespace DAKLXU_HFT_2021221.Client
                     List<Car>cars=rest.Get<Car>($"stat/mostrunnedkm/{i4}");
                     foreach (var j in cars)
                     {
-                        Console.WriteLine($"CAR\n********************\nID : {j.CarID},\nModel : {j.Model},\nBrand ID : {j.BrandId},\nRent-a-car ID : {j.RentCarID},\nRent price : {j.RentPrice},\n" +
+                        Console.WriteLine($"********************\nID : {j.CarID},\nModel : {j.Model},\nBrand ID : {j.BrandId},\nRent-a-car ID : {j.RentCarID},\nRent price : {j.RentPrice},\n" +
                         $"Colour : {j.Colour},\nInsurance : {j.CarInsurance},\nRunned kilometer : {j.RunnedKM}\n*********************");
                     }
                     Console.WriteLine("Press ENTER to countinue...");
@@ -158,7 +158,7 @@ namespace DAKLXU_HFT_2021221.Client
                     foreach (var j in groupByModels)
                     {
                         Console.WriteLine("*************************************");
-                        Console.WriteLine($"Model : {j.Key} - number : {j.Value}");
+                        Console.WriteLine($"Márka : {j.Key} - Összár : {j.Value}");
                         Console.WriteLine("*************************************");
                     }
                     Console.WriteLine("Press ENTER to countinue...");
@@ -176,6 +176,7 @@ namespace DAKLXU_HFT_2021221.Client
         static void CarMenu(int answer, RestService rest) {
             switch (answer) {
                 case 1:
+                    Console.Clear();
                     Console.WriteLine("Inserting a car");
                     Car car = new Car();
                     Console.WriteLine("Model:");
@@ -215,28 +216,30 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.ReadLine();
                     break;
                 case 2:
+                    Console.Clear();
                     List<Car> cars = rest.Get<Car>("car");
                     Console.Clear();
                     foreach (var i in cars)
                     {
-                        Console.WriteLine($"CAR\n********************\nID : {i.CarID},\nModel : {i.Model},\nBrand ID : {i.BrandId},\nRent-a-car ID : {i.RentCarID},\nRent price : {i.RentPrice},\n" +
+                        Console.WriteLine($"********************\nID : {i.CarID},\nModel : {i.Model},\nBrand ID : {i.BrandId},\nRent-a-car ID : {i.RentCarID},\nRent price : {i.RentPrice},\n" +
                         $"Colour : {i.Colour},\nInsurance : {i.CarInsurance},\nRunned kilometer : {i.RunnedKM}\n*********************");
                     }
                     Console.WriteLine("Press ENTER to countinue...");
                     Console.ReadLine();
                     break;
                 case 3:
+                    Console.Clear();
                     Console.WriteLine("Wich car do you want? Pick an ID");
                     int cID = int.Parse(Console.ReadLine());
-                    //var getOne=rest.Get<Car>($"car/{cID}");
                     var getOne = rest.Get<Car>(cID, $"car");
                     Console.Clear();
-                    Console.WriteLine($"CAR\n********************\nID : {getOne.CarID},\nModel : {getOne.Model},\nBrand ID : {getOne.BrandId},\nRent-a-car ID : {getOne.RentCarID},\nRent price : {getOne.RentPrice},\n" +
+                    Console.WriteLine($"********************\nID : {getOne.CarID},\nModel : {getOne.Model},\nBrand ID : {getOne.BrandId},\nRent-a-car ID : {getOne.RentCarID},\nRent price : {getOne.RentPrice},\n" +
                         $"Colour : {getOne.Colour},\nInsurance : {getOne.CarInsurance},\nRunned kilometer : {getOne.RunnedKM}\n*********************");
                     Console.WriteLine("Press ENTER to countinue...");
                     Console.ReadLine();
                     break;
                 case 4:
+                    Console.Clear();
                     Console.WriteLine("Wich car do you want to update? Pick an ID");
                     int updateID = int.Parse(Console.ReadLine());
                     Car updateCar = new Car();
@@ -277,6 +280,7 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.ReadLine();
                     break;
                 case 5:
+                    Console.Clear();
                     Console.WriteLine("Wich car do you want to delete? Pick an ID");
                     int dID = int.Parse(Console.ReadLine());
                     rest.Delete(dID, "car");
@@ -285,6 +289,7 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.ReadLine();
                     break;
                 default:
+                    Console.Clear();
                     Console.WriteLine("INVALID ANSWER");
                     Console.WriteLine("Press ENTER to countinue...");
                     Console.ReadLine();
@@ -440,7 +445,7 @@ namespace DAKLXU_HFT_2021221.Client
                     {
                         Console.WriteLine("***********************");
                         Console.WriteLine($"Rent-A-Car ID : {r.RentCarID},\nrent name : {r.RentName},\nrating : {r.Rating}" +
-                            $"cars : \n[");
+                            $"\ncars : \n[");
                         foreach (var c in r.Cars)
                         {
                             Console.WriteLine($"\t____________________________\n\tID : {c.CarID},\n\tModel : {c.Model},\n\tBrand ID : {c.BrandId},\n\tRent-a-car ID : {c.RentCarID},\n\tRent price : {c.RentPrice},\n" +
@@ -458,7 +463,7 @@ namespace DAKLXU_HFT_2021221.Client
                     RentACar re = rest.Get<RentACar>(i, "rentacar");
                     Console.WriteLine("***********************");
                     Console.WriteLine($"Rent-A-Car ID : {re.RentCarID},\nrent name : {re.RentName},\nrating : {re.Rating}" +
-                        $"cars : \n[");
+                        $"\ncars : \n[");
                     foreach (var c in re.Cars)
                     {
                         Console.WriteLine($"\t____________________________\n\tID : {c.CarID},\n\tModel : {c.Model},\n\tBrand ID : {c.BrandId},\n\tRent-a-car ID : {c.RentCarID},\n\tRent price : {c.RentPrice},\n" +
