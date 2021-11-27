@@ -16,9 +16,6 @@ namespace DAKLXU_HFT_2021221.Logic
         void Remove(RentACar rentACar);
 
         //update
-        /* void ChangeRating(int id, int newRating);
-         void ChangeRentName(int id, string newRentName);
-         void ChangeCarsCollection(int id, ICollection<Car> newCars);*/
 
         void RentACarUpdate(int id, RentACar newRent);
 

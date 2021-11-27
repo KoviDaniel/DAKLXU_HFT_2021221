@@ -93,6 +93,7 @@ namespace DAKLXU_HFT_2021221.Client
             switch (answer) {
                 
                 case 1:
+                    Console.Clear();
                     Console.WriteLine("Wich brand do you choose? Pick ID");
                     int i = int.Parse(Console.ReadLine());
                     List<Car> carByPrice=rest.Get<Car>($"stat/carorderbyprice/{i}");
@@ -105,6 +106,7 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.ReadLine();
                     break;
                 case 2:
+                    Console.Clear();
                     Console.WriteLine("Wich brand do you choose? Pick ID");
                     int i2 = int.Parse(Console.ReadLine());
                     List<Car> carByKM=rest.Get<Car>($"stat/carsorderbykm/{i2}");
@@ -117,6 +119,7 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.ReadLine();
                     break;
                 case 3:
+                    Console.Clear();
                     Console.WriteLine("Wich brand do you choose? Pick ID");
                     int i3 = int.Parse(Console.ReadLine());
                     List<RentACar> rent=rest.Get<RentACar>($"stat/mostvaluablecarowner/{i3}");
@@ -137,6 +140,7 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.ReadLine();
                     break;
                 case 4:
+                    Console.Clear();
                     Console.WriteLine("Wich rent-a-car do you choose? Pick ID");
                     int i4 = int.Parse(Console.ReadLine());
                     List<Car>cars=rest.Get<Car>($"stat/mostrunnedkm/{i4}");
@@ -149,6 +153,7 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.ReadLine();
                     break;
                 case 5:
+                    Console.Clear();
                     Console.WriteLine("Wich rent-a-car do you choose? Pick ID");
                     int i5 = int.Parse(Console.ReadLine());
                     var groupByModels=rest.Get<KeyValuePair<string, double>>($"stat/groupbymodels/{i5}");
@@ -162,6 +167,7 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.ReadLine();
                     break;
                 default:
+                    Console.Clear();
                     Console.WriteLine("INVALID ANSWER");
                     Console.WriteLine("Press ENTER to countinue...");
                     Console.ReadLine();

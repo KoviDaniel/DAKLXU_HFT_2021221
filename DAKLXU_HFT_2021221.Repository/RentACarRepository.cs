@@ -12,30 +12,6 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         public RentACarRepository(DbContext ctx) : base(ctx) { }
 
-        /*public void ChangeCarsCollection(int id, ICollection<Car> newCars)
-        {
-            var rentACar = GetOne(id);
-            if (rentACar == null) throw new InvalidOperationException("Rent-a-car not found!");
-            rentACar.Cars = newCars;
-            ctx.SaveChanges();
-        }
-
-        public void ChangeRating(int id, int newRating)
-        {
-            var rent = GetOne(id);
-            if (rent == null) throw new InvalidOperationException("Rent-a-car not found!");
-            rent.Rating = newRating;
-            ctx.SaveChanges();
-        }
-
-        public void ChangeRentName(int id, string newRentName)
-        {
-            var rent = GetOne(id);
-            if (rent == null) throw new InvalidOperationException("Rent-a-car not found!");
-            rent.RentName = newRentName;
-            ctx.SaveChanges();
-        }*/
-
         public void RentACarUpdate(int id, RentACar newRent) {
             var rentToUpdate = GetOne(id);
             rentToUpdate.RentName = newRent.RentName;
