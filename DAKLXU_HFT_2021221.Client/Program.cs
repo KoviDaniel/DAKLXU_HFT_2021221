@@ -92,7 +92,7 @@ namespace DAKLXU_HFT_2021221.Client
                 
                 case 1:
                     Console.Clear();
-                    Console.WriteLine("Wich brand do you choose? Pick ID");
+                    Console.WriteLine("Which brand do you choose? Pick ID");
                     int i = int.Parse(Console.ReadLine());
                     List<Car> carByPrice=rest.Get<Car>($"stat/carorderbyprice/{i}");
                     foreach (var j in carByPrice)
@@ -105,7 +105,7 @@ namespace DAKLXU_HFT_2021221.Client
                     break;
                 case 2:
                     Console.Clear();
-                    Console.WriteLine("Wich brand do you choose? Pick ID");
+                    Console.WriteLine("Which brand do you choose? Pick ID");
                     int i2 = int.Parse(Console.ReadLine());
                     List<Car> carByKM=rest.Get<Car>($"stat/carsorderbykm/{i2}");
                     foreach (var j in carByKM)
@@ -118,7 +118,7 @@ namespace DAKLXU_HFT_2021221.Client
                     break;
                 case 3:
                     Console.Clear();
-                    Console.WriteLine("Wich brand do you choose? Pick ID");
+                    Console.WriteLine("Which brand do you choose? Pick ID");
                     int i3 = int.Parse(Console.ReadLine());
                     List<RentACar> rent=rest.Get<RentACar>($"stat/mostvaluablecarowner/{i3}");
                     foreach (var r in rent)
@@ -139,7 +139,7 @@ namespace DAKLXU_HFT_2021221.Client
                     break;
                 case 4:
                     Console.Clear();
-                    Console.WriteLine("Wich rent-a-car do you choose? Pick ID");
+                    Console.WriteLine("Which rent-a-car do you choose? Pick ID");
                     int i4 = int.Parse(Console.ReadLine());
                     List<Car>cars=rest.Get<Car>($"stat/mostrunnedkm/{i4}");
                     foreach (var j in cars)
@@ -152,13 +152,13 @@ namespace DAKLXU_HFT_2021221.Client
                     break;
                 case 5:
                     Console.Clear();
-                    Console.WriteLine("Wich rent-a-car do you choose? Pick ID");
+                    Console.WriteLine("Which rent-a-car do you choose? Pick ID");
                     int i5 = int.Parse(Console.ReadLine());
                     var groupByModels=rest.Get<KeyValuePair<string, double>>($"stat/groupbymodels/{i5}");
                     foreach (var j in groupByModels)
                     {
                         Console.WriteLine("*************************************");
-                        Console.WriteLine($"Márka : {j.Key} - Összár : {j.Value}");
+                        Console.WriteLine($"Brand : {j.Key} - Sum_price : {j.Value}");
                         Console.WriteLine("*************************************");
                     }
                     Console.WriteLine("Press ENTER to countinue...");
@@ -229,7 +229,7 @@ namespace DAKLXU_HFT_2021221.Client
                     break;
                 case 3:
                     Console.Clear();
-                    Console.WriteLine("Wich car do you want? Pick an ID");
+                    Console.WriteLine("Which car do you want? Pick an ID");
                     int cID = int.Parse(Console.ReadLine());
                     var getOne = rest.Get<Car>(cID, $"car");
                     Console.Clear();
@@ -240,7 +240,7 @@ namespace DAKLXU_HFT_2021221.Client
                     break;
                 case 4:
                     Console.Clear();
-                    Console.WriteLine("Wich car do you want to update? Pick an ID");
+                    Console.WriteLine("Which car do you want to update? Pick an ID");
                     int updateID = int.Parse(Console.ReadLine());
                     Car updateCar = new Car();
                     Console.WriteLine("Model:");
@@ -281,7 +281,7 @@ namespace DAKLXU_HFT_2021221.Client
                     break;
                 case 5:
                     Console.Clear();
-                    Console.WriteLine("Wich car do you want to delete? Pick an ID");
+                    Console.WriteLine("Which car do you want to delete? Pick an ID");
                     int dID = int.Parse(Console.ReadLine());
                     rest.Delete(dID, "car");
                     Console.WriteLine("CAR DELETED FROM DATABASE");
