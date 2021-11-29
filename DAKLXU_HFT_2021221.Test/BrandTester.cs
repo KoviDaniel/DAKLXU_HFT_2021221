@@ -90,6 +90,7 @@ namespace DAKLXU_HFT_2021221.Test
             }.AsQueryable();
 
             mockBrandRepo.Setup((t) => t.GetAll()).Returns(brands);
+            mockBrandRepo.Setup((t) => t.GetOne(It.IsAny<int>()));
            // this.bl = new BrandLogic(mockBrandRepo.Object);
         }
 
@@ -152,7 +153,66 @@ namespace DAKLXU_HFT_2021221.Test
                 RentName= "Rent",
                 Rating = 3
             };
+
+            List<string> results = new List<string>();
+            List<string> expecteds = new List<string>();
+            expecteds.Add(expected.ToString());
+
+
             var result = bl.MostValuableCarOwner(1);
+            foreach (var item in result)
+            {
+                results.Add(item.ToString());
+            }
+
+            Assert.That(results, Is.EqualTo(expecteds));
+        }
+
+        [Test]
+        public void CarOrderByKMTest() {
+            RentACar fakeRent = new RentACar();
+            fakeRent.RentCarID = 1;
+            fakeRent.RentName = "Rent";
+            fakeRent.Rating = 3;
+
+            var expecteds = new List<Car>() {
+                new Car(){
+                            CarID = 3,
+                            Model = "306",
+                            BrandId = 2,
+                            Brand = bl.GetOne(2),
+                            RentCarID = 1,
+                            RentACar = fakeRent,
+                            RentPrice = 4500,
+                            Colour = "Red",
+                            CarInsurance = false,
+                            RunnedKM = 245070
+                        },
+                new Car(){
+                            CarID =4,
+                            Model = "406",
+                            BrandId = 2,
+                            Brand = bl.GetOne(2),
+                            RentCarID = 1,
+                            RentACar = fakeRent,
+                            RentPrice = 6700,
+                            Colour = "Yellow",
+                            CarInsurance = true,
+                            RunnedKM = 12000
+                        }
+            };
+
+            List<string> result = new List<string>();
+            List<string> expected = new List<string>();
+            foreach (var item in expecteds)
+            {
+                expected.Add(item.ToString());
+            }
+            foreach (var item in bl.CarsOrderbyKM(2))
+            {
+                result.Add(item.ToString());
+            }
+
             Assert.That(result, Is.EqualTo(expected));
         }
     }

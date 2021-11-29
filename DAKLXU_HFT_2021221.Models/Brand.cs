@@ -25,5 +25,10 @@ namespace DAKLXU_HFT_2021221.Models
         public Brand() {
             Cars = new HashSet<Car>();
         }
+
+        public override string ToString()
+        {
+            return $"{BrandID}, {BrandName}";
+        }
     }
 }

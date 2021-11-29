@@ -51,9 +51,13 @@ namespace DAKLXU_HFT_2021221.Logic
         /// <param name="id">Brand ID</param>
         /// <returns>Collection of cars</returns>
         public IEnumerable<Car> CarOrderByPrice(int id) {
-            var cars = from car in brandRepo.GetOne(id).Cars
+            var brand = brandRepo.GetAll().SingleOrDefault(x=>x.BrandID==id);
+            var cars = from car in brand.Cars
                        orderby car.RentPrice descending
-                       select car;
+                       select car; ;
+            /*var cars = from car in brandRepo.GetOne(id).Cars
+                       orderby car.RentPrice descending
+                       select car;*/
                
             return cars;
         }
@@ -64,7 +68,8 @@ namespace DAKLXU_HFT_2021221.Logic
         /// <param name="id">Brand ID</param>
         /// <returns>Collection of cars</returns>
         public IEnumerable<Car> CarsOrderbyKM(int id) {
-            var cars = from car in brandRepo.GetOne(id).Cars
+            var brand = brandRepo.GetAll().SingleOrDefault(x => x.BrandID == id);
+            var cars = from car in /*brandRepo.GetOne(id).Cars*/ brand.Cars
                        orderby car.RunnedKM descending
                        select car;
             return cars;
@@ -76,9 +81,9 @@ namespace DAKLXU_HFT_2021221.Logic
         /// <param name="id">Brand ID</param>
         /// <returns>Car owner</returns>
         public IEnumerable<RentACar> MostValuableCarOwner(int id) {
-
-            var owners = from cars in brandRepo.GetOne(id).Cars
-                         let x = brandRepo.GetOne(id).Cars.Max(c => c.RentPrice)
+            var brand = brandRepo.GetAll().SingleOrDefault(x => x.BrandID == id);
+            var owners = from cars in /*brandRepo.GetOne(id).Cars*/ brand.Cars
+                         let x = /*brandRepo.GetOne(id).Cars.Max(c => c.RentPrice)*/brand.Cars.Max(c=>c.RentPrice)
                          where cars.RentPrice == x
                          select cars.RentACar;
             return owners;

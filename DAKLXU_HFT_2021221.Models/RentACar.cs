@@ -28,5 +28,10 @@ namespace DAKLXU_HFT_2021221.Models
         {
             Cars = new HashSet<Car>();
         }
+
+        public override string ToString()
+        {
+            return $"{RentCarID}, {RentName}, {Rating}";
+        }
     }
 }

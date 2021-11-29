@@ -55,14 +55,18 @@ namespace DAKLXU_HFT_2021221.Logic
         /// <param name="id">Rent-A-Car ID</param>
         /// <returns>Collection of cars</returns>
         public IEnumerable<Car> MostRunnedKM(int id) {
-            var car = from rent in rentACarRepo.GetOne(id).Cars
-                      orderby rent.RunnedKM
-                      select rent;
+            var rent = rentACarRepo.GetAll().SingleOrDefault(x => x.RentCarID == id);
+            var car = from rents in /*rentACarRepo.GetOne(id).Cars*/rent.Cars
+                      /*orderby rents.RunnedKM*/
+                      let x = rent.Cars.Max(x=>x.RunnedKM)
+                      where rents.RunnedKM == x
+                      select rents;
             return car;
         }
 
         public IEnumerable<KeyValuePair<string, double>> GroupByModels(int id) {
-            return from x in rentACarRepo.GetOne(id).Cars
+            var rent = rentACarRepo.GetAll().SingleOrDefault(x => x.RentCarID == id);
+            return from x in /*rentACarRepo.GetOne(id).Cars*/rent.Cars
                    group x by x.Brand.BrandName into grp
                    select new KeyValuePair<string, double>
                    (grp.Key, grp.Sum(e => e.RentPrice));
