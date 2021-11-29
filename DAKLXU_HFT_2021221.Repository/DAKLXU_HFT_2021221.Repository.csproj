@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DAKLXU_HFT_2021221.Data\DAKLXU_HFT_2021221.Data.csproj" />
     <ProjectReference Include="..\DAKLXU_HFT_2021221.Models\DAKLXU_HFT_2021221.Models.csproj" />
   </ItemGroup>
 
