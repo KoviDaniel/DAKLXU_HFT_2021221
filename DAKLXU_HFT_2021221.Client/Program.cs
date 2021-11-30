@@ -306,6 +306,52 @@ namespace DAKLXU_HFT_2021221.Client
                     string name = Console.ReadLine();
                     Brand brand = new Brand();
                     brand.BrandName = name;
+                    //rest.Post<Brand>(brand, "brand");
+                    Console.WriteLine("Do you want to add cars to the brand now or later? (y/n)");
+                    string a = Console.ReadLine();
+                    if (a == "y")
+                    {
+                        Console.WriteLine("How many car do you want to insert?");
+                        int num = int.Parse(Console.ReadLine());
+                        for (int i = 0; i < num; i++)
+                        {
+                            Console.WriteLine("Inserting a car");
+                            Car c = new Car();
+                            Console.WriteLine("Model:");
+                            string model = Console.ReadLine();
+                            c.Model = model;
+                            Console.WriteLine("Rent price:");
+                            int rentP = int.Parse(Console.ReadLine());
+                            c.RentPrice = rentP;
+                            Console.WriteLine("Colour:");
+                            string col = Console.ReadLine();
+                            c.Colour = col;
+                            Console.WriteLine("Car insurance (y/n) :");
+                            string ins = Console.ReadLine();
+                            bool insurance;
+                            if (ins == "y")
+                            {
+                                insurance = true;
+                            }
+                            else
+                            {
+                                insurance = false;
+                            }
+                            c.CarInsurance = insurance;
+                            Console.WriteLine("Runned KM");
+                            int km = int.Parse(Console.ReadLine());
+                            c.RunnedKM = km;
+                            Console.WriteLine("Brand ID:");
+                            int bID = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Rent-a-car ID:");
+                            int rID = int.Parse(Console.ReadLine());
+                            c.BrandId = bID;
+                            c.RentCarID = rID;
+                            brand.Cars.Add(c);
+                            Console.ReadLine();
+                            Console.Clear();
+                        }
+                    }
                     rest.Post<Brand>(brand, "brand");
                     Console.WriteLine("New brand inserted to tha database");
                     Console.WriteLine("Press ENTER to countinue...");
@@ -391,7 +437,6 @@ namespace DAKLXU_HFT_2021221.Client
                         car.BrandId = bID;
                         car.RentCarID = rID;
                         uCars.Add(car);
-                        i++;
                         Console.ReadLine();
                         Console.Clear();
                     }
@@ -432,7 +477,54 @@ namespace DAKLXU_HFT_2021221.Client
                     Console.WriteLine("Rating:");
                     int rating = int.Parse(Console.ReadLine());
                     rent.RentName = name;
-                    rent.Rating = rating;
+                    rent.Rating = rating; 
+                    
+                    Console.WriteLine("Do you want to add cars to the company now or later? (y/n)");
+                    string a = Console.ReadLine();
+                    if (a == "y")
+                    {
+                        Console.WriteLine("How many car do you want to insert?");
+                        int num = int.Parse(Console.ReadLine());
+                        for (int e = 0; e < num; e++)
+                        {
+                            Console.WriteLine("Inserting a car");
+                            Car c = new Car();
+                            Console.WriteLine("Model:");
+                            string model = Console.ReadLine();
+                            c.Model = model;
+                            Console.WriteLine("Rent price:");
+                            int rentP = int.Parse(Console.ReadLine());
+                            c.RentPrice = rentP;
+                            Console.WriteLine("Colour:");
+                            string col = Console.ReadLine();
+                            c.Colour = col;
+                            Console.WriteLine("Car insurance (y/n) :");
+                            string ins = Console.ReadLine();
+                            bool insurance;
+                            if (ins == "y")
+                            {
+                                insurance = true;
+                            }
+                            else
+                            {
+                                insurance = false;
+                            }
+                            c.CarInsurance = insurance;
+                            Console.WriteLine("Runned KM");
+                            int km = int.Parse(Console.ReadLine());
+                            c.RunnedKM = km;
+                            Console.WriteLine("Brand ID:");
+                            int bID = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Rent-a-car ID:");
+                            int rID = int.Parse(Console.ReadLine());
+                            c.BrandId = bID;
+                            c.RentCarID = rID;
+                            rent.Cars.Add(c);
+                            Console.ReadLine();
+                            Console.Clear();
+                        }
+                    }
+
                     rest.Post<RentACar>(rent, "rentacar");
                     Console.WriteLine("Rent-A-Car company inserted to the database");
                     Console.WriteLine("Press ENTER to countinue...");
@@ -519,7 +611,6 @@ namespace DAKLXU_HFT_2021221.Client
                         car.BrandId = bID;
                         car.RentCarID = rID;
                         uCars.Add(car);
-                        j++;
                         Console.ReadLine();
                         Console.Clear();
                     }
