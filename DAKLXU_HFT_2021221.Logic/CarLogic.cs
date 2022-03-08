@@ -44,10 +44,10 @@ namespace DAKLXU_HFT_2021221.Logic
         }
 
        
-        public void CarUpdate(int id, Car newCar) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
+        public void CarUpdate(/*int id,*/ Car newCar) {
+           // if (id < 1) throw new ArgumentException("Invalid ID");
             if (newCar == null) throw new ArgumentNullException("Null car");
-            carRepo.CarUpdate(id, newCar);
+            carRepo.CarUpdate(/*id,*/ newCar);
         }
 
  

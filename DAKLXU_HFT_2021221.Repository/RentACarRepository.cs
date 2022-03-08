@@ -12,11 +12,21 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         public RentACarRepository(DbContext ctx) : base(ctx) { }
 
-        public void RentACarUpdate(int id, RentACar newRent) {
-            var rentToUpdate = GetOne(id);
-            rentToUpdate.RentName = newRent.RentName;
-            rentToUpdate.Rating = newRent.Rating;
-            rentToUpdate.Cars = newRent.Cars;
+        public void RentACarUpdate(/*int id,*/ RentACar newRent) {
+            //var rentToUpdate = GetOne(id);
+            //rentToUpdate.RentName = newRent.RentName;
+            //rentToUpdate.Rating = newRent.Rating;
+            //rentToUpdate.Cars = newRent.Cars;
+            //ctx.SaveChanges();
+
+            var old = GetOne(newRent.RentCarID);
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(newRent));
+                }
+            }
             ctx.SaveChanges();
         }
 

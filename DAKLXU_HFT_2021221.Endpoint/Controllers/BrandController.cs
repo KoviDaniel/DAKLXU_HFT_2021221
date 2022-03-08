@@ -24,14 +24,14 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         [HttpGet]
         public List<Brand> Get()
         {
-            return bl.GetAll(); ;
+            return this.bl.GetAll(); ;
         }
 
         // GET /brand/5
         [HttpGet("{id}")]
         public Brand Get(int id)
         {
-            return bl.GetOne(id);
+            return this.bl.GetOne(id);
         }
 
         // POST /brand

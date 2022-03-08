@@ -24,35 +24,35 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         [HttpGet]
         public List<Car> Get()
         {
-            return cl.GetAll();
+            return this.cl.GetAll();
         }
 
         // GET /car/5
         [HttpGet("{id}")]
         public Car Get(int id)
         {
-            return cl.GetOne(id);
+            return this.cl.GetOne(id);
         }
 
         // POST /car
         [HttpPost]
         public void Post([FromBody] Car value)
         {
-            cl.Insert(value);
+            this.cl.Insert(value);
         }
 
         // PUT /car/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Car value)
+        [HttpPut/*("{id}")*/]
+        public void Put(/*int id,*/ [FromBody] Car value)
         {
-            cl.CarUpdate(id, value);
+            this.cl.CarUpdate(/*id,*/ value);
         }
 
         // DELETE /car/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            cl.Remove(/*cl.GetOne(id)*/id);
+            this.cl.Remove(/*cl.GetOne(id)*/id);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace DAKLXU_HFT_2021221.Logic
 
         //update
 
-        void RentACarUpdate(int id, RentACar newRent);
+        void RentACarUpdate(/*int id,*/ RentACar newRent);
 
         //NON-CRUD METHODS
         IEnumerable<Car> MostRunnedKM(int id);

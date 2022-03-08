@@ -11,6 +11,6 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         //Updates
 
-        void CarUpdate(int id, Car newCar);
+        void CarUpdate(/*int id,*/ Car newCar);
     }
 }

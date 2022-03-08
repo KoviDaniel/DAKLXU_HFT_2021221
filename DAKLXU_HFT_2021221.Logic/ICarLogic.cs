@@ -17,7 +17,7 @@ namespace DAKLXU_HFT_2021221.Logic
 
         //update
 
-        void CarUpdate(int id, Car newCar);
+        void CarUpdate(/*int id,*/ Car newCar);
 
         //NON-CRUD METHODS
     }

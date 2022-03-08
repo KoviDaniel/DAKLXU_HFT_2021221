@@ -41,10 +41,10 @@ namespace DAKLXU_HFT_2021221.Logic
 
        
 
-        public void RentACarUpdate(int id, RentACar newRent) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
+        public void RentACarUpdate(/*int id,*/ RentACar newRent) {
+           // if (id < 1) throw new ArgumentException("Invalid ID");
             if (newRent == null) throw new ArgumentNullException("Null Rent-A-Car");
-            rentACarRepo.RentACarUpdate(id, newRent);
+            rentACarRepo.RentACarUpdate(/*id,*/ newRent);
         }
 
         //NON-CRUD METHODS
