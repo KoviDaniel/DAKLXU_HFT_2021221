@@ -54,7 +54,7 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
         public RentACarMenuWindowViewModel()
         {
             if (!IsInDesignMode) {
-                Rents = new RestCollection<RentACar>("http://localhost:17167/", "rentacar");
+                Rents = new RestCollection<RentACar>("http://localhost:17167/", "rentacar", "hub");
 
                 CreateRentCommand = new RelayCommand(
                     ()=>Rents.Add(new RentACar() { 

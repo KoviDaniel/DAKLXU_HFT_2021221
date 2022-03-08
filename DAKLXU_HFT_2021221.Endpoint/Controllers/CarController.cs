@@ -45,7 +45,7 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
             hub.Clients.All.SendAsync("CarCreated", value);
         }
 
-        // PUT /car/5
+        // PUT /car
         [HttpPut/*("{id}")*/]
         public void Put(/*int id,*/ [FromBody] Car value)
         {

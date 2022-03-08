@@ -52,7 +52,7 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
         public BrandMenuWindowViewModel()
         {
             if (!IsInDesignMode) {
-                Brands = new RestCollection<Brand>("http://localhost:17167/", "brand");
+                Brands = new RestCollection<Brand>("http://localhost:17167/", "brand", "hub");
 
                 CreateBrandCommand = new RelayCommand(
                     () => {

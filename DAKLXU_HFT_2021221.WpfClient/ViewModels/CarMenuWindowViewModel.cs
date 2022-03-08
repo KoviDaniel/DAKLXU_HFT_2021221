@@ -60,7 +60,7 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
         public CarMenuWindowViewModel()
         {
             if (!IsInDesignMode) {
-                Cars = new RestCollection<Car>("http://localhost:17167/", "car");
+                Cars = new RestCollection<Car>("http://localhost:17167/", "car", "hub");
 
                 CreateCarCommand = new RelayCommand(
                     ()=>Cars.Add(new Car() { 
