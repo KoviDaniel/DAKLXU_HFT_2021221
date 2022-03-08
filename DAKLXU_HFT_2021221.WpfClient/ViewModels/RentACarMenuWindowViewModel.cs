@@ -72,6 +72,8 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
                     ()=>VMRents.Delete(SelectedRent.RentCarID),
                     ()=>SelectedRent!=null
                     );
+
+                SelectedRent = new RentACar();
             }
         }
     }
