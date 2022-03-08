@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAKLXU_HFT_2021221.WpfClient"
+        xmlns:vms="clr-namespace:DAKLXU_HFT_2021221.WpfClient.ViewModels"
         mc:Ignorable="d"
         Title="RentACarMenuWindow" Height="473" Width="800">
+    <Window.DataContext>
+        <vms:RentACarMenuWindowViewModel />
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

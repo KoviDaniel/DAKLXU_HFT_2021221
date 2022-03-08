@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAKLXU_HFT_2021221.WpfClient.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace DAKLXU_HFT_2021221.WpfClient
         public RentACarMenuWindow()
         {
             InitializeComponent();
+            var vm = new RentACarMenuWindowViewModel();
+            this.DataContext = vm;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
