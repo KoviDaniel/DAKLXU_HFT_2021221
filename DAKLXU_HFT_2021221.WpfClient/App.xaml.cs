@@ -1,4 +1,6 @@
-﻿using Microsoft.Toolkit.Mvvm.DependencyInjection;
+﻿using DAKLXU_HFT_2021221.WpfClient.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,6 +13,15 @@ namespace DAKLXU_HFT_2021221.WpfClient
 {
     public partial class App : Application
     {
-
+        public App()
+        {
+            Ioc.Default.ConfigureServices(
+                new ServiceCollection()
+                    .AddSingleton<IBrandMenuService, BrandMenuViaWindow>()
+                    .AddSingleton<ICarMenuService, CarMenuViaWindow>()
+                    .AddSingleton<IRentACarMenuService, RentACarMenuViaWindow>()
+                    .BuildServiceProvider()
+                );
+        }
     }
 }

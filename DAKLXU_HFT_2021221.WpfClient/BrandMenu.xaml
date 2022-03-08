@@ -1,0 +1,29 @@
+﻿<Window x:Class="DAKLXU_HFT_2021221.WpfClient.BrandMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DAKLXU_HFT_2021221.WpfClient"
+        mc:Ignorable="d"
+        Title="Brand Menu" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="Brand name" FontSize="16" BorderBrush="Black" BorderThickness="1"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Brand name" FontSize="20" Background="LightBlue"/>
+            <TextBox Text="the brand name" FontSize="18" Padding="10"/>
+            <Button Content="Create Brand" FontSize="20" Margin="10" Padding="10"/>
+            <Button Content="Update Brand" FontSize="20" Margin="10" Padding="10"/>
+            <Button Content="Delete Brand" FontSize="20" Margin="10" Padding="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
