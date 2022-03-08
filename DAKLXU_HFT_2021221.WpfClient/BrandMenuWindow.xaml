@@ -24,6 +24,7 @@
             <Button Content="Create Brand" FontSize="20" Margin="10" Padding="10"/>
             <Button Content="Update Brand" FontSize="20" Margin="10" Padding="10"/>
             <Button Content="Delete Brand" FontSize="20" Margin="10" Padding="10"/>
+            <Button Content="Save" FontSize="20" Margin="10" Padding="10" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>
