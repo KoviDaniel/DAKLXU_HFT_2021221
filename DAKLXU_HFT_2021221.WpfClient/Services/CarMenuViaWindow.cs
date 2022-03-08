@@ -10,7 +10,7 @@ namespace DAKLXU_HFT_2021221.WpfClient.Services
     {
         public void OpenCarMenuWindow()
         {
-            throw new NotImplementedException();
+            new CarMenuWindow().ShowDialog();
         }
     }
 }
