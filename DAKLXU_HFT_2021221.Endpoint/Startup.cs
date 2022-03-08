@@ -29,6 +29,7 @@ namespace DAKLXU_HFT_2021221.Endpoint
             services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<IRentACarRepository, RentACarRepository>();
             services.AddTransient<DbContext, XYZDbContext>();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +45,7 @@ namespace DAKLXU_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
