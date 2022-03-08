@@ -35,9 +35,9 @@
             <Label Content="Runned KM" FontSize="20" Background="LightBlue"/>
             <TextBox Text="{Binding SelectedCar.RunnedKM}" FontSize="18" Padding="10"/>
             <CheckBox IsChecked="{Binding SelectedCar.CarInsurance}" Content="Insurance" Padding="5" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Content="Create Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding CreateCarCommand}"/>
-            <Button Content="Update Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding UpdateCarCommand}"/>
-            <Button Content="Delete Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding DeleteCarCommand}"/>
+            <Button Content="Create Car" FontSize="20" Margin="10" Padding="10" Command="{Binding CreateCarCommand}"/>
+            <Button Content="Update Car" FontSize="20" Margin="10" Padding="10" Command="{Binding UpdateCarCommand}"/>
+            <Button Content="Delete Car" FontSize="20" Margin="10" Padding="10" Command="{Binding DeleteCarCommand}"/>
             <Button Content="Save" FontSize="20" Margin="10" Padding="10" Click="Button_Click"/>
         </StackPanel>
     </Grid>

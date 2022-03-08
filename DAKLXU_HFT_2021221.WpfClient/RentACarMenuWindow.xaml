@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DAKLXU_HFT_2021221.WpfClient"
         xmlns:vms="clr-namespace:DAKLXU_HFT_2021221.WpfClient.ViewModels"
         mc:Ignorable="d"
-        Title="RentACarMenuWindow" Height="473" Width="800">
+        Title="Rent-A-CarMenu" Height="473" Width="800">
     <Window.DataContext>
         <vms:RentACarMenuWindowViewModel />
     </Window.DataContext>
@@ -30,9 +30,9 @@
             <TextBox Text="{Binding SelectedRent.RentName}" FontSize="18" Padding="10"/>
             <Label Content="Company rating" FontSize="20" Background="LightBlue"/>
             <TextBox Text="{Binding SelectedRent.Rating}" FontSize="18" Padding="10"/>
-            <Button Content="Create Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding CreateRentCommand}"/>
-            <Button Content="Update Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding UpdateRentCommand}"/>
-            <Button Content="Delete Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding DeleteRentCommand}"/>
+            <Button Content="Create Rent-a-car" FontSize="20" Margin="10" Padding="10" Command="{Binding CreateRentCommand}"/>
+            <Button Content="Update Rent-a-car" FontSize="20" Margin="10" Padding="10" Command="{Binding UpdateRentCommand}"/>
+            <Button Content="Delete Rent-a-car" FontSize="20" Margin="10" Padding="10" Command="{Binding DeleteRentCommand}"/>
             <Button Content="Save" FontSize="20" Margin="10" Padding="10" Click="Button_Click"/>
         </StackPanel>
     </Grid>
