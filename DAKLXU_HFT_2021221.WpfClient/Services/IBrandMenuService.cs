@@ -8,5 +8,6 @@ namespace DAKLXU_HFT_2021221.WpfClient.Services
 {
     public interface IBrandMenuService
     {
+        void OpenBrandMenuWindow();
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAKLXU_HFT_2021221.WpfClient.Services
 {
-    interface IRentACarMenuService
+    public interface IRentACarMenuService
     {
+        void OpenRentACarMenuWindow();
     }
 }
