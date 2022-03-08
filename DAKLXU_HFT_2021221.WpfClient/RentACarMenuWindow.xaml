@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAKLXU_HFT_2021221.WpfClient"
         mc:Ignorable="d"
-        Title="RentACarMenuWindow" Height="450" Width="800">
+        Title="RentACarMenuWindow" Height="473" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Company name" FontSize="16" />
+                        <Label Content="Rating" FontSize="16"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Company name" FontSize="20" Background="LightBlue"/>
+            <TextBox Text="Lajos kocsikái" FontSize="18" Padding="10"/>
+            <Label Content="Company rating" FontSize="20" Background="LightBlue"/>
+            <TextBox Text="4.34" FontSize="18" Padding="10"/>
+            <Button Content="Create Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding CreateBrandCommand}"/>
+            <Button Content="Update Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding UpdateBrandCommand}"/>
+            <Button Content="Delete Brand" FontSize="20" Margin="10" Padding="10" Command="{Binding DeleteBrandCommand}"/>
+            <Button Content="Save" FontSize="20" Margin="10" Padding="10" Click="Button_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

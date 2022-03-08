@@ -14,14 +14,16 @@ using System.Windows.Shapes;
 
 namespace DAKLXU_HFT_2021221.WpfClient
 {
-    /// <summary>
-    /// Interaction logic for RentACarMenuWindow.xaml
-    /// </summary>
     public partial class RentACarMenuWindow : Window
     {
         public RentACarMenuWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }

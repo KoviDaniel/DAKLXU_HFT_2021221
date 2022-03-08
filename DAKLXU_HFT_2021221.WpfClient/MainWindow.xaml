@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Button Content="Cars" FontSize="30" Grid.Column="0" Command="{Binding CarMenuOpenerCommand}"/>
-            <Button Content="Models" FontSize="30" Grid.Column="1" Command="{Binding BrandMenuOpenerCommand}"/>
+            <Button Content="Brands" FontSize="30" Grid.Column="1" Command="{Binding BrandMenuOpenerCommand}"/>
             <Button Content="Rent-a-cars" FontSize="30" Grid.Column="2" Command="{Binding RentACarMenuOpenerCommand}"/>
         </Grid>
     </Grid>
