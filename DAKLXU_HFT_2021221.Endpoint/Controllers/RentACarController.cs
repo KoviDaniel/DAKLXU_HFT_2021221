@@ -1,6 +1,7 @@
 ﻿using DAKLXU_HFT_2021221.Logic;
 using DAKLXU_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,11 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
     public class RentACarController : ControllerBase
     {
         IRentACarLogic rl;
-        public RentACarController(IRentACarLogic rl)
+        private readonly IHubContext<SignalRHub> hub;
+        public RentACarController(IRentACarLogic rl, IHubContext<SignalRHub> hub)
         {
             this.rl = rl;
+            this.hub = hub;
         }
 
         // GET: /rentacar
@@ -39,6 +42,7 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] RentACar value)
         {
             this.rl.Insert(value);
+            hub.Clients.All.SendAsync("RentACarCreated", value);
         }
 
         // PUT /rentacar/5
@@ -46,13 +50,16 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         public void Put(/*int id,*/ [FromBody] RentACar value)
         {
             this.rl.RentACarUpdate(/*id,*/ value);
+            hub.Clients.All.SendAsync("RentACarUpdated", value);
         }
 
         // DELETE /rentacar/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var rent = this.rl.GetOne(id);
             this.rl.Remove(/*rl.GetOne(id)*/id);
+            hub.Clients.All.SendAsync("RentACarDeleted", rent);
         }
     }
 }

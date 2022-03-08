@@ -1,6 +1,7 @@
 ﻿using DAKLXU_HFT_2021221.Logic;
 using DAKLXU_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,11 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
     public class BrandController : ControllerBase
     {
         IBrandLogic bl;
-        public BrandController(IBrandLogic bl)
+        private readonly IHubContext<SignalRHub> hub;
+        public BrandController(IBrandLogic bl, IHubContext<SignalRHub> hub)
         {
             this.bl = bl;
+            this.hub = hub;
         }
 
         // GET: /brand
@@ -39,6 +42,7 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Brand value)
         {
             this.bl.Insert(value);
+            hub.Clients.All.SendAsync("BrandCreated", value);
         }
 
         // PUT /brand/5
@@ -46,13 +50,16 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         public void Put(/*int id,*/ [FromBody] Brand value)
         {
             this.bl.BrandUpdate(/*id,*/ value);
+            hub.Clients.All.SendAsync("BrandUpdated", value);
         }
 
         // DELETE /brand/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var brand = this.bl.GetOne(id);
             this.bl.Remove(id);
+            hub.Clients.All.SendAsync("BrandDeleted", brand);
         }
     }
 }

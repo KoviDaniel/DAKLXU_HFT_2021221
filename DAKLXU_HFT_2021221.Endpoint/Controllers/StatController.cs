@@ -1,6 +1,7 @@
 ﻿using DAKLXU_HFT_2021221.Logic;
 using DAKLXU_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,12 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
     {
         IBrandLogic bl;
         IRentACarLogic rl;
-        public StatController(IBrandLogic bl, IRentACarLogic rl)
+        private readonly IHubContext<SignalRHub> hub;
+        public StatController(IBrandLogic bl, IRentACarLogic rl, IHubContext<SignalRHub> hub)
         {
             this.bl = bl;
             this.rl = rl;
+            this.hub = hub;
         }
         // GET: /stat/carorderbyprice/5
         [HttpGet("{id}")]
