@@ -38,10 +38,10 @@ namespace DAKLXU_HFT_2021221.Logic
         }
         
 
-        public void BrandUpdate(int id, Brand newBrand) {
-            if (id < 1) throw new ArgumentException("Invalid ID");
+        public void BrandUpdate(/*int id,*/ Brand newBrand) {
+            //if (id < 1) throw new ArgumentException("Invalid ID");
             if (newBrand == null) throw new ArgumentNullException("Null brand");
-            brandRepo.BrandUpdate(id, newBrand);
+            brandRepo.BrandUpdate(/*id,*/ newBrand);
         }
         //NON-CRUD METHODS
 

@@ -42,10 +42,10 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         }
 
         // PUT /brand/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Brand value)
+        [HttpPut/*("{id}")*/]
+        public void Put(/*int id,*/ [FromBody] Brand value)
         {
-            bl.BrandUpdate(id, value);
+            bl.BrandUpdate(/*id,*/ value);
         }
 
         // DELETE /brand/5

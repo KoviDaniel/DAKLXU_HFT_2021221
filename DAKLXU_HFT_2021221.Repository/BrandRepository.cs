@@ -12,10 +12,20 @@ namespace DAKLXU_HFT_2021221.Repository
     {
         public BrandRepository(DbContext ctx) : base(ctx) { }
 
-        public void BrandUpdate(int id, Brand newBrand) {
-            var brandToUpdate = GetOne(id);
-            brandToUpdate.BrandName = newBrand.BrandName;
-            brandToUpdate.Cars = newBrand.Cars;
+        public void BrandUpdate(/*int id,*/ Brand newBrand) {
+            //var brandToUpdate = GetOne(id);
+            //brandToUpdate.BrandName = newBrand.BrandName;
+            //brandToUpdate.Cars = newBrand.Cars;
+            //ctx.SaveChanges();
+
+            var old = GetOne(newBrand.BrandID);
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(newBrand));
+                }
+            }
             ctx.SaveChanges();
         }
 

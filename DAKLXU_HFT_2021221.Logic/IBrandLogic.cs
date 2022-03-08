@@ -17,7 +17,7 @@ namespace DAKLXU_HFT_2021221.Logic
 
         //update
 
-        void BrandUpdate(int id, Brand newBrand);
+        void BrandUpdate(/*int id,*/ Brand newBrand);
 
         //NON-CRUD METHODS
 
