@@ -15,7 +15,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch" ItemsSource="{Binding VMBrands}" SelectedItem="{Binding SelectedBrand}">
+        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding BrandName}" FontSize="16" BorderBrush="Black" BorderThickness="1"/>

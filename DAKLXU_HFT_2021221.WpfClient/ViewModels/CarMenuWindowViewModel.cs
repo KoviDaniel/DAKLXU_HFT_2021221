@@ -14,7 +14,7 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
 {
     public class CarMenuWindowViewModel : ObservableRecipient
     {
-        public RestCollection<Car> VMCars { get; set; }
+        public RestCollection<Car> Cars { get; set; }
 
         private Car selectedCar;
 
@@ -60,10 +60,10 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
         public CarMenuWindowViewModel()
         {
             if (!IsInDesignMode) {
-                VMCars = new RestCollection<Car>("http://localhost:17167/", "car");
+                Cars = new RestCollection<Car>("http://localhost:17167/", "car");
 
                 CreateCarCommand = new RelayCommand(
-                    ()=>VMCars.Add(new Car() { 
+                    ()=>Cars.Add(new Car() { 
                         Brand = SelectedCar.Brand,
                         BrandId = SelectedCar.BrandId,
                         RentACar = SelectedCar.RentACar,
@@ -77,12 +77,12 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
                     );
 
                 UpdateCarCommand = new RelayCommand(
-                    ()=>VMCars.Update(SelectedCar),
+                    ()=>Cars.Update(SelectedCar),
                     ()=>SelectedCar!=null
                     );
 
                 DeleteCarCommand = new RelayCommand(
-                    () => VMCars.Delete(SelectedCar.CarID),
+                    () => Cars.Delete(SelectedCar.CarID),
                     () => SelectedCar != null
                     );
 

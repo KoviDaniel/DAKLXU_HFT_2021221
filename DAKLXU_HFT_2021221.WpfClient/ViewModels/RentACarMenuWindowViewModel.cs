@@ -14,7 +14,7 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
 {
     public class RentACarMenuWindowViewModel : ObservableRecipient
     {
-        public RestCollection<RentACar> VMRents { get; set; }
+        public RestCollection<RentACar> Rents { get; set; }
 
         private RentACar selectedRent;
 
@@ -54,22 +54,22 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
         public RentACarMenuWindowViewModel()
         {
             if (!IsInDesignMode) {
-                VMRents = new RestCollection<RentACar>("http://localhost:17167/", "rentacar");
+                Rents = new RestCollection<RentACar>("http://localhost:17167/", "rentacar");
 
                 CreateRentCommand = new RelayCommand(
-                    ()=>VMRents.Add(new RentACar() { 
+                    ()=>Rents.Add(new RentACar() { 
                         RentName = SelectedRent.RentName,
                         Rating = SelectedRent.Rating
                     })
                     );
 
                 UpdateRentCommand = new RelayCommand(
-                    () => VMRents.Update(SelectedRent),
+                    () => Rents.Update(SelectedRent),
                     ()=>SelectedRent!=null
                     );
 
                 DeleteRentCommand = new RelayCommand(
-                    ()=>VMRents.Delete(SelectedRent.RentCarID),
+                    ()=>Rents.Delete(SelectedRent.RentCarID),
                     ()=>SelectedRent!=null
                     );
 

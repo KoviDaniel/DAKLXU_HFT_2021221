@@ -15,7 +15,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch" ItemsSource="{Binding VMRents}" SelectedItem="{Binding SelectedRent}">
+        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Rents}" SelectedItem="{Binding SelectedRent}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

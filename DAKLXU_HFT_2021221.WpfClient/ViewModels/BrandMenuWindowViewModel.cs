@@ -14,7 +14,7 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
 {
     public class BrandMenuWindowViewModel : ObservableRecipient
     {
-        public RestCollection<Brand> VMBrands { get; set; }
+        public RestCollection<Brand> Brands { get; set; }
 
         private Brand selectedBrand;
 
@@ -52,11 +52,11 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
         public BrandMenuWindowViewModel()
         {
             if (!IsInDesignMode) {
-                VMBrands = new RestCollection<Brand>("http://localhost:17167/", "brand");
+                Brands = new RestCollection<Brand>("http://localhost:17167/", "brand");
 
                 CreateBrandCommand = new RelayCommand(
                     () => {
-                        VMBrands.Add(new Brand()
+                        Brands.Add(new Brand()
                         {
                             BrandName = SelectedBrand.BrandName
                         });
@@ -65,13 +65,13 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
                 UpdateBrandCommand = new RelayCommand(
                     () =>
                     {
-                        VMBrands.Update(SelectedBrand);
+                        Brands.Update(SelectedBrand);
                     },
                     () => SelectedBrand != null
                     );
 
                 DeleteBrandCommand = new RelayCommand(
-                    () => VMBrands.Delete(SelectedBrand.BrandID),
+                    () => Brands.Delete(SelectedBrand.BrandID),
                     () => SelectedBrand !=null
                     );
 
