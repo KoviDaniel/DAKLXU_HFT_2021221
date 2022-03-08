@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAKLXU_HFT_2021221.WpfClient.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,13 @@ namespace DAKLXU_HFT_2021221.WpfClient
         public CarMenuWindow()
         {
             InitializeComponent();
+            var vm = new CarMenuWindowViewModel();
+            this.DataContext = vm;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }
