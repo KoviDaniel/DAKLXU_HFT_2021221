@@ -1,4 +1,5 @@
 ﻿using DAKLXU_HFT_2021221.WpfClient.Services;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Windows.Input;
 
 namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
 {
-    public class MainMenuViewModel
+    public class MainWindowViewModel
     {
         IBrandMenuService brandMenuService;
         ICarMenuService carMenuService;
@@ -30,7 +31,15 @@ namespace DAKLXU_HFT_2021221.WpfClient.ViewModels
             }
         }
 
-        public MainMenuViewModel(IBrandMenuService bService, ICarMenuService cService, IRentACarMenuService rService)
+        public MainWindowViewModel()
+            : this(IsInDesignMode ? null : Ioc.Default.GetService<IBrandMenuService>(),
+                  Ioc.Default.GetService<ICarMenuService>(),
+                  Ioc.Default.GetService<IRentACarMenuService>())
+        {
+
+        }
+
+        public MainWindowViewModel(IBrandMenuService bService, ICarMenuService cService, IRentACarMenuService rService)
         {
             if (!IsInDesignMode)
             {
