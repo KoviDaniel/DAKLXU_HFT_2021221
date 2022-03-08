@@ -17,7 +17,7 @@ namespace DAKLXU_HFT_2021221.Repository
         IQueryable<T> GetAll();
         //update is class specified (later)
         //delete
-        void Remove(T entity);
+        void Remove(/*T entity*/int id);
 
     }
 }

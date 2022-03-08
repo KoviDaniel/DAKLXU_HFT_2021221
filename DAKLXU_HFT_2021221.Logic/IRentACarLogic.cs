@@ -13,7 +13,7 @@ namespace DAKLXU_HFT_2021221.Logic
         RentACar GetOne(int id);
         List<RentACar> GetAll();
         void Insert(RentACar newRentACar);
-        void Remove(RentACar rentACar);
+        void Remove(/*RentACar rentACar*/int id);
 
         //update
 

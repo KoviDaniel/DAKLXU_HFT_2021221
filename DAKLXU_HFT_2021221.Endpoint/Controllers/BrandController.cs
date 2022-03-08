@@ -38,21 +38,21 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         [HttpPost]
         public void Post([FromBody] Brand value)
         {
-            bl.Insert(value);
+            this.bl.Insert(value);
         }
 
         // PUT /brand/5
         [HttpPut/*("{id}")*/]
         public void Put(/*int id,*/ [FromBody] Brand value)
         {
-            bl.BrandUpdate(/*id,*/ value);
+            this.bl.BrandUpdate(/*id,*/ value);
         }
 
         // DELETE /brand/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            bl.Remove(bl.GetOne(id));
+            this.bl.Remove(id);
         }
     }
 }

@@ -32,9 +32,9 @@ namespace DAKLXU_HFT_2021221.Logic
             if (newBrand.BrandName == "") throw new ArgumentException("Brand name can't be empty string");
             brandRepo.Insert(newBrand);
         }
-        public void Remove(Brand brand) {
-            if (brand == null) throw new ArgumentNullException("Null brand (REMOVE)");
-            brandRepo.Remove(brand);
+        public void Remove(/*Brand brand*/ int id) {
+            //if (brand == null) throw new ArgumentNullException("Null brand (REMOVE)");
+            brandRepo.Remove(/*brand*/id);
         }
         
 

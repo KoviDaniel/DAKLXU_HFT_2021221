@@ -28,9 +28,9 @@ namespace DAKLXU_HFT_2021221.Repository
             this.ctx.SaveChanges();
         }
 
-        public void Remove(T entity)
+        public void Remove(/*T entity*/ int id)
         {
-            this.ctx.Set<T>().Remove(entity);
+            this.ctx.Set<T>().Remove(/*entity*/GetOne(id));
             this.ctx.SaveChanges();
         }
     }

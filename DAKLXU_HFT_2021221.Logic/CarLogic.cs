@@ -38,9 +38,9 @@ namespace DAKLXU_HFT_2021221.Logic
             if (newCar.RunnedKM == null) newCar.RunnedKM = 0;
             carRepo.Insert(newCar);
         }
-        public void Remove(Car car) {
-            if (car == null) throw new ArgumentNullException("Null car (DELETE)");
-            carRepo.Remove(car);
+        public void Remove(/*Car car*/int id) {
+           // if (car == null) throw new ArgumentNullException("Null car (DELETE)");
+            carRepo.Remove(/*car*/id);
         }
 
        

@@ -52,7 +52,7 @@ namespace DAKLXU_HFT_2021221.Endpoint.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            cl.Remove(cl.GetOne(id));
+            cl.Remove(/*cl.GetOne(id)*/id);
         }
     }
 }

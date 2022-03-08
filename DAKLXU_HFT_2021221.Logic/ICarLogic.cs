@@ -13,7 +13,7 @@ namespace DAKLXU_HFT_2021221.Logic
         Car GetOne(int id);
         List<Car> GetAll();
         void Insert(Car newCar);
-        void Remove(Car car);
+        void Remove(/*Car car*/int id);
 
         //update
 

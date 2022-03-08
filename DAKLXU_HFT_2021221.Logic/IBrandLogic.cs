@@ -13,7 +13,7 @@ namespace DAKLXU_HFT_2021221.Logic
         Brand GetOne(int id);
         List<Brand> GetAll();
         void Insert(Brand newBrand);
-        void Remove(Brand brand);
+        void Remove(/*Brand brand*/int id);
 
         //update
 
