@@ -20,7 +20,7 @@ function display()
         document.getElementById('resultareas').innerHTML +=
             "<tr><td>" + t.brandID + "</td><td>"
         + t.brandName + "</td><td>" +
-        `<button type="button" onclick="remove(${t.brandID})>Remove</button>"`
+        `<button type="button" onclick="remove(${t.brandID})">Remove</button>`
             +"</td ></tr > ";
     });
 }
