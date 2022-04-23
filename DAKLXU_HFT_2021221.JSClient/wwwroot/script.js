@@ -22,21 +22,21 @@ function display()
             "<tr><td>" + t.brandID + "</td><td>"
         + t.brandName + "</td><td>" +
         `<button type="button" onclick="remove(${t.brandID})">Remove</button>` + "</td><td>" +
-        `<button type="button" onclick="updateBrand(${t.brandID})">Update</button>`
+        `<button type="button" onclick="updateBrand()">Update</button>`
         +"</td ></tr > ";
     });
 }
 
-function updateBrand(id) {
+function updateBrand() {
     let newName = document.getElementById('brandname').value;
-    fetch('http://localhost:17167/brand/'+id, {
-        method: 'UPDATE',
+    fetch('http://localhost:17167/brand', {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(
             {
-                brandName: name
+                
             }),
     })
         .then(response => response)
