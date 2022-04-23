@@ -25,9 +25,10 @@ namespace DAKLXU_HFT_2021221.JSClient
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles();
+            
 
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
