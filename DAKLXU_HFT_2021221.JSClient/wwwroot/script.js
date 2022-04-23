@@ -17,3 +17,5 @@ function display()
         console.log(t.rentName);
     });
 }
+
+function create() {}
