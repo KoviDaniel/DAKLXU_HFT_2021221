@@ -1,41 +1,46 @@
-﻿let companies = [];
-fetch('http://localhost:17167/rentacar')
-    .then(x => x.json())
-    .then(y => {
-        companies = y;
-        console.log(companies);
-        display();
-    });
+﻿let brands = [];
+
+getdata();
+
+async function getdata() {
+    await fetch('http://localhost:17167/brand')
+        .then(x => x.json())
+        .then(y => {
+            brands = y;
+            console.log(brands);
+            display();
+        });
+}
+
 
 function display()
 {
-    companies.forEach(t =>
+    brands.forEach(t =>
     {
         document.getElementById('resultareas').innerHTML +=
-            "<tr><td>" + t.rentCarID + "</td><td>"
-            +t.rentName+"</td><td>"+t.rating+"</td></tr>"
-        console.log(t.rentName);
+            "<tr><td>" + t.brandID + "</td><td>"
+            + t.brandName + "</td></tr>";
     });
 }
 
-function create() {
-    fetch('http://localhost:17167/rentacar', {
+function createBrand() {
+    let name = document.getElementById('brandname').value;
+    fetch('http://localhost:17167/brand', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(
             {
-                rentName: name,
-                rating: com_rating
+                brandName: name
             }),
     })
         .then(response => response)
         .then(data => {
             console.log('Success:', data);
+            getdata();
         })
         .catch((error) => {
             console.error('Error:', error);
         });
-    display();
 }
