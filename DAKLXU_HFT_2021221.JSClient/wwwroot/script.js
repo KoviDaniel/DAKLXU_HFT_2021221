@@ -23,6 +23,8 @@ function display()
     });
 }
 
+function remove() {}
+
 function createBrand() {
     let name = document.getElementById('brandname').value;
     fetch('http://localhost:17167/brand', {
