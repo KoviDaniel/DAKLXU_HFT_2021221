@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DAKLXU_HFT_2021221.WpfClient"
         xmlns:vms="clr-namespace:DAKLXU_HFT_2021221.WpfClient.ViewModels"
         mc:Ignorable="d"
-        Title="Car Menu" Height="687" Width="800">
+        Title="Car Menu" Height="844" Width="800">
     <Window.DataContext>
         <vms:CarMenuWindowViewModel />
     </Window.DataContext>
@@ -34,6 +34,12 @@
             <TextBox Text="{Binding SelectedCar.Colour}" FontSize="18" Padding="10"/>
             <Label Content="Runned KM" FontSize="20" Background="LightBlue"/>
             <TextBox Text="{Binding SelectedCar.RunnedKM}" FontSize="18" Padding="10"/>
+
+            <Label Content="Brand ID" FontSize="20" Background="LightBlue"/>
+            <TextBox Text="{Binding SelectedCar.BrandId}" FontSize="18" Padding="10"/>
+            <Label Content="Company ID" FontSize="20" Background="LightBlue"/>
+            <TextBox Text="{Binding SelectedCar.RentCarID}" FontSize="18" Padding="10"/>
+
             <CheckBox IsChecked="{Binding SelectedCar.CarInsurance}" Content="Insurance" Padding="5" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button Content="Create Car" FontSize="20" Margin="10" Padding="10" Command="{Binding CreateCarCommand}"/>
             <Button Content="Update Car" FontSize="20" Margin="10" Padding="10" Command="{Binding UpdateCarCommand}"/>
