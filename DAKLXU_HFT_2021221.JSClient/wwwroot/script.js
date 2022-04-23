@@ -15,6 +15,7 @@ async function getdata() {
 
 function display()
 {
+    document.getElementById('resultareas').innerHTML = "";
     brands.forEach(t =>
     {
         document.getElementById('resultareas').innerHTML +=
@@ -26,7 +27,21 @@ function display()
 }
 
 function remove(id) {
-    alert(id);
+    fetch('http://localhost:17167/brand/'+id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: null
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getdata();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
 
 function createBrand() {
