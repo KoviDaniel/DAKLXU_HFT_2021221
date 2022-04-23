@@ -37,4 +37,5 @@ function create() {
         .catch((error) => {
             console.error('Error:', error);
         });
+    display();
 }
