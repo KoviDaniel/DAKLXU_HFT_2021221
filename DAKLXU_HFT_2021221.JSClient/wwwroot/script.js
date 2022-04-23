@@ -19,11 +19,15 @@ function display()
     {
         document.getElementById('resultareas').innerHTML +=
             "<tr><td>" + t.brandID + "</td><td>"
-            + t.brandName + "</td></tr>";
+        + t.brandName + "</td><td>" +
+        `<button type="button" onclick="remove(${t.brandID})>Remove</button>"`
+            +"</td ></tr > ";
     });
 }
 
-function remove() {}
+function remove(id) {
+    alert(id);
+}
 
 function createBrand() {
     let name = document.getElementById('brandname').value;
