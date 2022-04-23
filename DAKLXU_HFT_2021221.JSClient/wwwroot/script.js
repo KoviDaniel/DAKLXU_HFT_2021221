@@ -31,6 +31,12 @@ function setupSignalR()
             "BrandDeleted", (user, message) => {
                 getdata();
             }
+    );
+    connection.on
+        (
+            "BrandUpdated", (user, message) => {
+                getdata();
+            }
         );
     connection.onclose
         (async () => {
@@ -59,22 +65,27 @@ function display()
             "<tr><td>" + t.brandID + "</td><td>"
         + t.brandName + "</td><td>" +
         `<button type="button" onclick="remove(${t.brandID})">Remove</button>` + "</td><td>" +
-        `<button type="button" onclick="updateBrand()">Update</button>`
+        `<button type="button" onclick="updateBrand(${t.brandID})">Update</button>`
         +"</td ></tr > ";
     });
 }
 
-function updateBrand() {
+function updateBrand(id) {
     let newName = document.getElementById('brandname').value;
+    let upd = null;
+    brands.forEach(t => {
+        if (t.brandID == id) {
+            upd = t;
+            upd.brandName = newName;
+        }
+    });
+    upd.brandName = newName;
     fetch('http://localhost:17167/brand', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(
-            {
-                
-            }),
+        body: JSON.stringify(upd)
     })
         .then(response => response)
         .then(data => {
