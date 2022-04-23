@@ -18,4 +18,23 @@ function display()
     });
 }
 
-function create() {}
+function create() {
+    fetch('http://localhost:17167/rentacar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            {
+                rentName: name,
+                rating: com_rating
+            }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
