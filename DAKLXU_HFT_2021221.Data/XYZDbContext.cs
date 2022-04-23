@@ -125,13 +125,15 @@ namespace DAKLXU_HFT_2021221.Data
                 entity.HasOne(car => car.Brand)
                     .WithMany(brand => brand.Cars)
                     .HasForeignKey(car => car.BrandId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+                   // .OnDelete(DeleteBehavior.ClientSetNull);
+                   .OnDelete(DeleteBehavior.Cascade);
             });
             modelBuilder.Entity<Car>(entity => {
                 entity.HasOne(car => car.RentACar)
                     .WithMany(rent => rent.Cars)
                     .HasForeignKey(car => car.RentCarID)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+                    //.OnDelete(DeleteBehavior.ClientSetNull);
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             //insert elements
