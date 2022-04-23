@@ -199,15 +199,15 @@ namespace DAKLXU_HFT_2021221.Test
         [TestCase(-10, "1")]
         [TestCase(1, null)]
         public void CarUpdateExceptionTest(int id, string idx) {
-            if (idx == null) Assert.Throws(typeof(ArgumentNullException), () => cl.CarUpdate(id, null));
-            if (id < 0) Assert.Throws(typeof(ArgumentException), ()=>cl.CarUpdate(id, null));
+            if (idx == null) Assert.Throws(typeof(ArgumentNullException), () => cl.CarUpdate(null));
+            if (id < 0) Assert.Throws(typeof(ArgumentException), ()=>cl.CarUpdate(null));
 
         }
 
         //DELETE tester
         [Test]
         public void CarDeleteExceptionTest() {
-            Assert.Throws(typeof(ArgumentNullException), ()=>cl.Remove(null));
+            Assert.Throws(typeof(ArgumentNullException), ()=>cl.Remove(-1));
         }
     }
     
